@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqunk5i8w1vi1"]
+
+[ext_resource type="Script" uid="uid://nutpmv8hhf1t" path="res://ui/rulelist/rule_list.gd" id="1_kq35m"]
+
+[node name="RuleList" type="PanelContainer"]
+offset_right = 32.0
+offset_bottom = 8.0
+script = ExtResource("1_kq35m")

@@ -15,12 +15,24 @@ run/main_scene="uid://d1kwj6pb2q8vd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MemorySystem="*res://autoload/MemorySystem.gd"
+
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=240
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://cpcw02p51cw0b"
 
 [input]
 
