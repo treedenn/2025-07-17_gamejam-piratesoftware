@@ -29,14 +29,12 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+"<<<<<<<HEAD[gui]theme/custom_font"="uid://cpcw02p51cw0b"
 
-<<<<<<< HEAD
 [gui]
 
 theme/custom_font="uid://cpcw02p51cw0b"
 
-=======
->>>>>>> 4c94b17b51ef832fd7d5f216cf33e8e1109eb678
 [input]
 
 player_up={
