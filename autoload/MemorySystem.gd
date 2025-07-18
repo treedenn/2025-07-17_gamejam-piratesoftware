@@ -30,12 +30,15 @@ func hack_memory(rule_name: String) -> bool:
 		print("MmeorySystem - ERROR: Memory address '", rule_name, "' not found!")
 		memory_hack_attempted.emit(rule_name, false)
 		return false
+		
+		
+	var old_value = memory_rules[rule_name]
 	
 	# Save current state to history
-	hack_history.append(rule_name)
+	hack_history.append({rule_name: old_value})
 	
 	# Hack the rule (toggle for booleans)
-	var old_value = memory_rules[rule_name]
+	
 	var new_value
 	
 	if typeof(old_value) == TYPE_BOOL:

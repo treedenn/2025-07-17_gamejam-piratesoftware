@@ -33,7 +33,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
 [gui]
 
-theme/custom_font="uid://cpcw02p51cw0b"
+theme/custom_font="uid://dxl40jb8d0pa3"
 
 [input]
 

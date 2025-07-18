@@ -53,7 +53,7 @@ func update_list():
 	# Removes all the children
 	for child in rule_children:
 		child.queue_free()
-		remove_child(child)
+		rule_container.remove_child(child)
 	
 	# Ressurrects the necessary children
 	for rules in _rule_list:

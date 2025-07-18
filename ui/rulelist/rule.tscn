@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://da78i32txjw3m"]
 
 [ext_resource type="Script" uid="uid://jhu7q2mtmt3t" path="res://ui/rulelist/rule.gd" id="1_eqwsc"]
-[ext_resource type="Texture2D" uid="uid://btvre5t21cwil" path="res://assets/Other/PlaceholderIcon.png" id="2_ujt2m"]
+[ext_resource type="Texture2D" uid="uid://dqawlxofjs5yc" path="res://assets/Other/PlaceholderIcon.png" id="2_ujt2m"]
 
 [node name="PanelContainer" type="PanelContainer"]
 offset_left = 71.0
