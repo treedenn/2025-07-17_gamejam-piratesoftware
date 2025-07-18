@@ -113,3 +113,9 @@ anchor_mode = 0
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="RuleList" parent="UI" instance=ExtResource("3_yv82f")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_right = 0.0
+grow_horizontal = 0

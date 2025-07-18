@@ -42,10 +42,12 @@ func move(vel: Vector2):
 	var tween = create_tween()
 	tween.tween_property(self, "position", position + vel * TILE_SIZE, animation_speed).set_trans(Tween.TRANS_SINE)
 	
+	_movement_cooldown_timer = _movement_cooldown
+	
 	await tween.finished
 	
 	_moving = false
-	_movement_cooldown_timer = _movement_cooldown
+	
 	
 func canMove() -> bool:
 	if _moving:
