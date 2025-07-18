@@ -3,10 +3,14 @@ class_name Player
 
 const TILE_SIZE = 16
 
-var _movement_cooldown := .25
+var _movement_cooldown := 0.25
 var _movement_cooldown_timer := 0.0
 
 var _velocity := Vector2.ZERO
+
+var _anim_speed := 0.25
+
+var _moving := false
 
 func _ready() -> void:
 	position = position.snapped(Vector2.ONE * TILE_SIZE) - Vector2(8, 8)
@@ -31,8 +35,23 @@ func _physics_process(delta: float) -> void:
 		move(_velocity)
 
 func move(vel: Vector2):
-	position += vel * TILE_SIZE
+	var tween = create_tween()
+	tween.tween_property(self, "position", position + vel * TILE_SIZE, _anim_speed).set_trans(Tween.TRANS_SINE)
+	# Keeping this here for future references until no longer necessary
+	# TODO: Remove
+	#position += vel * TILE_SIZE
+	
+	_moving = true
 	_movement_cooldown_timer = 0
 	
+	await tween.finished
+	
+	_moving = false
+	
+	
+	
 func canMove() -> bool:
+	if _moving:
+		return false
+		
 	return _movement_cooldown_timer >= _movement_cooldown

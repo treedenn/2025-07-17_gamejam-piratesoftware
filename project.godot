@@ -15,6 +15,13 @@ run/main_scene="uid://d1kwj6pb2q8vd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [input]
 
 player_up={
