@@ -5,13 +5,12 @@
 
 [node name="PanelContainer" type="PanelContainer"]
 offset_left = 71.0
-offset_right = 138.0
+offset_right = 180.0
 offset_bottom = 14.0
 script = ExtResource("1_eqwsc")
 
 [node name="Rule" type="HBoxContainer" parent="."]
 layout_mode = 2
-alignment = 1
 
 [node name="RuleIcon" type="TextureRect" parent="Rule"]
 custom_minimum_size = Vector2(8, 8)
@@ -28,5 +27,10 @@ theme_override_constants/paragraph_spacing = 0
 theme_override_font_sizes/font_size = 8
 text = "RuleName"
 
-[node name="PlaceholderBackground" type="ColorRect" parent="Rule"]
+[node name="VSeparator" type="VSeparator" parent="Rule"]
 layout_mode = 2
+
+[node name="Value" type="Label" parent="Rule"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Value"

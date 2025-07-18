@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://d1kwj6pb2q8vd"]
+[gd_scene load_steps=6 format=4 uid="uid://d1kwj6pb2q8vd"]
 
 [ext_resource type="Texture2D" uid="uid://be8yq1ux5cplb" path="res://rooms/assets/tileset.png" id="1_lwhkg"]
 [ext_resource type="PackedScene" uid="uid://dfjeutjfcimhj" path="res://player/player.tscn" id="1_n2rm1"]
+[ext_resource type="PackedScene" uid="uid://cqunk5i8w1vi1" path="res://ui/rulelist/rule_list.tscn" id="3_yv82f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2rm1"]
 texture = ExtResource("1_lwhkg")
@@ -107,9 +108,23 @@ position = Vector2(24, 24)
 tilemap = NodePath("../TileMapLayer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+position = Vector2(161, 89)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="RuleList" parent="UI" instance=ExtResource("3_yv82f")]
+=======
+>>>>>>> Stashed changes
 anchor_mode = 0
 zoom = Vector2(3, 3)
 drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
+<<<<<<< Updated upstream
+=======
+>>>>>>> 1089b5ca1396cd5ab2c4696a2b276fda12184b8e
+>>>>>>> Stashed changes

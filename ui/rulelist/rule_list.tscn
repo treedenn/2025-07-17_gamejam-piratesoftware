@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqunk5i8w1vi1"]
+[gd_scene load_steps=3 format=3 uid="uid://cqunk5i8w1vi1"]
 
 [ext_resource type="Script" uid="uid://nutpmv8hhf1t" path="res://ui/rulelist/rule_list.gd" id="1_kq35m"]
+[ext_resource type="PackedScene" uid="uid://da78i32txjw3m" path="res://ui/rulelist/rule.tscn" id="2_idk24"]
 
 [node name="RuleList" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
 offset_right = 32.0
-offset_bottom = 8.0
+offset_bottom = 26.0
 script = ExtResource("1_kq35m")
+rule_scene = ExtResource("2_idk24")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.537613, 0.866351, 0.790428, 1)
+
+[node name="ListAndButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ShowHideButton" type="Button" parent="ListAndButtonContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 8
+text = "SHOW"
+
+[node name="RuleContainer" type="VBoxContainer" parent="ListAndButtonContainer"]
+clip_contents = true
+layout_mode = 2
+alignment = 1

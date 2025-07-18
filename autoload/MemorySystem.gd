@@ -22,6 +22,7 @@ func _ready():
 	
 	# Clears hack history array to avoid bugs or weird shenanigans
 	hack_history.clear()
+	
 
 # Main function to hack a memory rule
 func hack_memory(rule_name: String) -> bool:
