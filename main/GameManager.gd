@@ -3,6 +3,7 @@ extends Node
 # -- Properties --
 var current_level_index: int = 0
 var level_paths: Array[String] = [
+	"res://rooms/room1.tscn",
 	"res://levels/Level_01.tscn",
 ]
 
@@ -11,13 +12,17 @@ var level_node: Node
 
 # -- Load the first level on game start --
 func _ready():
-	load_level(current_level_index)
+	safe_load_level.call_deferred(current_level_index)
 
 # -- Load a level by index --
 func load_level(index: int):
 	if index < 0 or index >= level_paths.size():
 		printerr("Level index out of range.")
 		return
+
+func safe_load_level(index: int):
+	await get_tree().process_frame
+	load_level(index)
 
 	current_level_index = index
 	var scene_path = level_paths[index]
