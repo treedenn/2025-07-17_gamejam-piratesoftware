@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bumvo3h73eih3"]
+
+[node name="LogicGate" type="Node2D"]
