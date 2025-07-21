@@ -1,10 +1,238 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfjeutjfcimhj"]
+[gd_scene load_steps=18 format=3 uid="uid://dfjeutjfcimhj"]
 
-[ext_resource type="Texture2D" uid="uid://nslamqru2o5r" path="res://player/assets/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b78tejmboqpda" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://drqgrq037hemv" path="res://assets/Character/Character.png" id="2_rkbax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(12, 14)
+
+[sub_resource type="Animation" id="Animation_g1dw6"]
+resource_name = "ZeroBlink"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 5, 4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_yw30f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qjkh3"]
+resource_name = "ZeroEyebrows"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.19608, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0, 3, 0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_g6k8r"]
+resource_name = "ZeroRaisedRight"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_boad6"]
+resource_name = "ZeroRaisedLeft"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_rgyib"]
+resource_name = "ZeroRaisedBoth"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 0, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_rkbax"]
+resource_name = "ZeroNothing"
+length = 5.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+resource_name = "OneBlink"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 10, 11, 10, 6]
+}
+
+[sub_resource type="Animation" id="Animation_8t03j"]
+resource_name = "OneNothing"
+length = 5.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_2ieo8"]
+resource_name = "OneRaisedBoth"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 9, 6, 9, 6]
+}
+
+[sub_resource type="Animation" id="Animation_ebec5"]
+resource_name = "OneRaisedLeft"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 8, 6]
+}
+
+[sub_resource type="Animation" id="Animation_yllr7"]
+resource_name = "OneRaisedRight"
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 6]
+}
+
+[sub_resource type="Animation" id="Animation_kb6p2"]
+resource_name = "OneEyebrows"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.19608, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 8, 7, 6, 9, 6, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hg6s5"]
+_data = {
+&"OneBlink": SubResource("Animation_hg6s5"),
+&"OneEyebrows": SubResource("Animation_kb6p2"),
+&"OneNothing": SubResource("Animation_8t03j"),
+&"OneRaisedBoth": SubResource("Animation_2ieo8"),
+&"OneRaisedLeft": SubResource("Animation_ebec5"),
+&"OneRaisedRight": SubResource("Animation_yllr7"),
+&"RESET": SubResource("Animation_yw30f"),
+&"ZeroBlink": SubResource("Animation_g1dw6"),
+&"ZeroEyebrows": SubResource("Animation_qjkh3"),
+&"ZeroNothing": SubResource("Animation_rkbax"),
+&"ZeroRaisedBoth": SubResource("Animation_rgyib"),
+&"ZeroRaisedLeft": SubResource("Animation_boad6"),
+&"ZeroRaisedRight": SubResource("Animation_g6k8r")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
@@ -12,8 +240,15 @@ script = ExtResource("1_rkbax")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_oul6g")
+texture = ExtResource("2_rkbax")
+hframes = 6
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hg6s5")
+}
