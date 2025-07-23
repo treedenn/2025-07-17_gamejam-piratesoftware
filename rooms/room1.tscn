@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://d1kwj6pb2q8vd"]
+[gd_scene load_steps=9 format=4 uid="uid://d1kwj6pb2q8vd"]
 
 [ext_resource type="Texture2D" uid="uid://be8yq1ux5cplb" path="res://rooms/assets/tileset.png" id="1_lwhkg"]
 [ext_resource type="PackedScene" uid="uid://dfjeutjfcimhj" path="res://player/player.tscn" id="1_n2rm1"]
 [ext_resource type="Script" uid="uid://u7bcw5hesxur" path="res://rooms/room.gd" id="1_yv82f"]
+[ext_resource type="PackedScene" uid="uid://bumvo3h73eih3" path="res://objects/logicgate/LogicGate.tscn" id="4_ilnpg"]
+[ext_resource type="Script" uid="uid://cwe6d0flwnrw6" path="res://objects/logicgate/andgate/AndGate.gd" id="5_17aq2"]
+[ext_resource type="Texture2D" uid="uid://daiuchmdltp6g" path="res://objects/logicgate/AND.png" id="5_6436r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2rm1"]
 texture = ExtResource("1_lwhkg")
@@ -110,3 +113,24 @@ position = Vector2(23, 23)
 tilemap = NodePath("../TileMapLayer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AndGate1" parent="." instance=ExtResource("4_ilnpg")]
+script = ExtResource("5_17aq2")
+
+[node name="Sprite2D" type="Sprite2D" parent="AndGate1"]
+position = Vector2(168, 72)
+texture = ExtResource("5_6436r")
+
+[node name="AndGate2" parent="." node_paths=PackedStringArray("InputA") instance=ExtResource("4_ilnpg")]
+script = ExtResource("5_17aq2")
+InputA = NodePath("../AndGate1")
+
+[node name="Sprite2D" type="Sprite2D" parent="AndGate2"]
+position = Vector2(200, 72)
+texture = ExtResource("5_6436r")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
