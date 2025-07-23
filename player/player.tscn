@@ -1,7 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://dfjeutjfcimhj"]
 
 [ext_resource type="Script" uid="uid://b78tejmboqpda" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://b21sogwhq8mhg" path="res://assets/Character/Character.png" id="2_rkbax"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oul6g"]
+load_path = "res://.godot/imported/Character.png-9f6644ab61489b56128871560b2e891f.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(12, 14)
@@ -234,13 +236,13 @@ _data = {
 &"ZeroRaisedRight": SubResource("Animation_g6k8r")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_rkbax")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rkbax")
+texture = SubResource("CompressedTexture2D_oul6g")
 hframes = 6
 vframes = 2
 
