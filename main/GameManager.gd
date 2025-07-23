@@ -1,5 +1,7 @@
 extends Node
 
+@onready var player: Player = get_tree().get_first_node_in_group("Player")
+
 # -- Properties --
 var current_level_index: int = 0
 var level_paths: Array[String] = [
