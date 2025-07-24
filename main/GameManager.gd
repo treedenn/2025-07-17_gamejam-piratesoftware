@@ -1,6 +1,6 @@
 extends Node
 
-@onready var player: Player = get_tree().get_first_node_in_group("Player")
+var player
 
 # -- Properties --
 var current_level_index: int = 0
@@ -16,6 +16,8 @@ var level_node: Node
 func _ready():
 	safe_load_level.call_deferred(current_level_index)
 
+	get_player_reference()
+	
 # -- Load a level by index --
 func load_level(index: int):
 	if index < 0 or index >= level_paths.size():
@@ -28,6 +30,7 @@ func safe_load_level(index: int):
 
 	current_level_index = index
 	var scene_path = level_paths[index]
+	print(scene_path)
 	current_level = load(scene_path)
 
 	if not current_level:
@@ -35,17 +38,29 @@ func safe_load_level(index: int):
 		return
 
 	get_tree().change_scene_to_packed(current_level)
+	
+	await get_tree().process_frame
+	get_player_reference()
+	print(current_level, " is current level")
+	print(current_level)
 
 # -- Restart current level --
 func restart_level():
 	load_level(current_level_index)
+
+func get_player_reference():
+	player = get_tree().get_first_node_in_group("Player")
+	if player:
+		print("GameManager - ", player, " is player")
+	else:
+		print("GameManager - No player found")
 
 # -- Load the next level --
 func load_next_level():
 	var next_index = current_level_index + 1
 	if next_index >= level_paths.size():
 		# Optionally: show credits, return to menu, etc.
-		print("All levels complete!")
+		print("GameManager - All levels complete!")
 		get_tree().change_scene_to_file("res://main/Main.tscn")
 	else:
 		load_level(next_index)

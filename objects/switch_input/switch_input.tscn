@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://mn2devtkffr"]
+
+[ext_resource type="Texture2D" uid="uid://dyg3rkno4sgi4" path="res://assets/Objectives/Assets.png" id="1_k5jnb"]
+[ext_resource type="Script" uid="uid://b3mf2mgpw56lj" path="res://objects/switch_input/switch_input.gd" id="1_rijw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rijw6"]
+size = Vector2(32, 32)
+
+[node name="SwitchInput" type="Node2D"]
+script = ExtResource("1_rijw6")
+
+[node name="SwitchSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_k5jnb")
+hframes = 8
+vframes = 4
+frame = 3
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+shape = SubResource("RectangleShape2D_rijw6")
+
+[connection signal="area_entered" from="PlayerCheck" to="." method="_on_player_check_area_entered"]
+[connection signal="area_exited" from="PlayerCheck" to="." method="_on_player_check_area_exited"]

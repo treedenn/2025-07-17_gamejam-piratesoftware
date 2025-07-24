@@ -6,7 +6,6 @@ extends Node2D
 @onready var _camera := $Camera2D
 
 @onready var _andgate1: LogicGate = $AndGate1
-@onready var _andgate2: LogicGate = $AndGate2
 @onready var _timer := $Timer
 
 var boundaries: Vector2i

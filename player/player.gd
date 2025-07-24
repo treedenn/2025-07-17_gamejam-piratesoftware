@@ -43,9 +43,6 @@ func _process(delta):
 	# Roll, at random, for the animation to run - if it rolls 6+ (_nothing_anim_value), it picks "Nothing"
 	#for the animation, otherwise plays one of the others. Done this way to weight towards "Nothing".
 	if not animation_player.is_playing():
-		_animation_chosen = randi_range(_min_anim_roll_value,_max_anim_roll_value)
-		if _animation_chosen >= _nothing_anim_value:
-			_animation_chosen = _nothing_anim_value
 		run_animation()
 
 func get_input_direction() -> Vector2i:
@@ -70,12 +67,26 @@ func canMove(dir: Vector2i) -> bool:
 	raycast.force_raycast_update()
 	return !raycast.is_colliding() and _movement_cooldown_timer <= 0
 
+func change_state(state: State):
+	_current_state = state
+	
+	print(state, " This is the state")
+	print(_current_state, " This is current state")
+	
+	if animation_player.is_playing():
+		animation_player.stop()
+		run_animation()
+
 # Function to run the animation based on previously rolled animation and current state
 func run_animation():
 	var state_string = State.keys()[_current_state]
+	print(state_string, "<- StateString")
 	
-	print(_animation_chosen, " This is chosen anim")
-	print(state_string)
+	_animation_chosen = randi_range(_min_anim_roll_value,_max_anim_roll_value)
+	
+	if _animation_chosen >= _nothing_anim_value:
+		_animation_chosen = _nothing_anim_value
+	
 	
 	match _animation_chosen:
 		1:

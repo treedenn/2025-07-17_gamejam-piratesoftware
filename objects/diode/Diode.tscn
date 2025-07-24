@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://cvtp87jl4k3gt"]
+[gd_scene load_steps=5 format=3 uid="uid://cvtp87jl4k3gt"]
+
+[ext_resource type="Script" uid="uid://cuvs08jf542xr" path="res://objects/diode/Diode.gd" id="1_d4q7m"]
+[ext_resource type="Texture2D" uid="uid://dyg3rkno4sgi4" path="res://assets/Objectives/Assets.png" id="2_0x715"]
+
+[sub_resource type="Gradient" id="Gradient_d4q7m"]
+offsets = PackedFloat32Array(0, 0.75974, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.428571, 0.428571, 0.428571, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hlua5"]
+gradient = SubResource("Gradient_d4q7m")
+fill = 1
+fill_from = Vector2(0.486239, 0.522936)
+fill_to = Vector2(0.87156, 0.261468)
 
 [node name="Diode" type="Node2D"]
+script = ExtResource("1_d4q7m")
+
+[node name="DiodeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_0x715")
+hframes = 8
+vframes = 4
+frame = 24
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_hlua5")
