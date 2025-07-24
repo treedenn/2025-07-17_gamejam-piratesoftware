@@ -13,6 +13,6 @@ func _update_sprite():
 		frameName = "full"
 	sprite.animation = frameName
 
-func _update_output():
+func _update():
 	var new_output := ~(input_a & input_b) & 1
 	_set_output(new_output)
