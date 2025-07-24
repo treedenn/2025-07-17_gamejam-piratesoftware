@@ -1,6 +1,6 @@
 extends Node
 
-var player
+var player: Player
 
 # -- Properties --
 var current_level_index: int = 0
