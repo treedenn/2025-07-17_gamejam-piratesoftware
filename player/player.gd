@@ -10,6 +10,7 @@ const TILE_SIZE = 16
 @export var _movement_cooldown := 0.25
 @export var animation_duration := 0.20
 
+@onready var interact_area: Area2D = $Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var raycast := $RayCast2D
 
@@ -22,10 +23,17 @@ var _max_anim_roll_value: int = 10
 var _min_anim_roll_value: int = 1
 var _nothing_anim_value: int = 6
 
+var _interacted_node: Node2D
+
 func _ready():
 	position = position.snapped(Vector2.ONE * TILE_SIZE) + Vector2.ONE * 8
 	
 	_current_state = State.One
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("player_interact"):
+		if is_instance_valid(_interacted_node):
+			_handle_interaction()
 
 func _process(delta):
 	if _movement_cooldown_timer > 0:
@@ -90,3 +98,19 @@ func run_animation():
 			animation_player.play(state_string + "RaisedRight")
 		6:
 			animation_player.play(state_string + "Nothing")
+
+func can_interact() -> bool:
+	return true
+
+func _handle_interaction() -> void:
+	if can_interact():
+		if _interacted_node is Switch:
+			_interacted_node.toggle()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Switch:
+		_interacted_node = body
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if _interacted_node == body:
+		_interacted_node = null

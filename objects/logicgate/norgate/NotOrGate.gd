@@ -1,5 +1,5 @@
 extends LogicGate
-class_name AndGate
+class_name NorGate
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -13,7 +13,6 @@ func _update_sprite():
 		frameName = "full"
 	sprite.animation = frameName
 
-func _update():
-	var new_output := input_a & input_b
+func _update_output():
+	var new_output := ~(input_a | input_b) & 1
 	_set_output(new_output)
-	_update_sprite()

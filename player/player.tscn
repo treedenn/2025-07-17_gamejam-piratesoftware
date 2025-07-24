@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfjeutjfcimhj"]
+[gd_scene load_steps=19 format=3 uid="uid://dfjeutjfcimhj"]
 
 [ext_resource type="Script" uid="uid://b78tejmboqpda" path="res://player/player.gd" id="1_rkbax"]
 
@@ -236,6 +236,9 @@ _data = {
 &"ZeroRaisedRight": SubResource("Animation_g6k8r")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(32, 32)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_rkbax")
 
@@ -254,3 +257,11 @@ shape = SubResource("RectangleShape2D_oul6g")
 libraries = {
 &"": SubResource("AnimationLibrary_hg6s5")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rkbax")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

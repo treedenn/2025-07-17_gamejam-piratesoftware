@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://nmewhgaq8sqi"]
+
+[ext_resource type="Script" uid="uid://j0473cnvnw72" path="res://objects/logicgate/norgate/NotOrGate.gd" id="1_b7vad"]
+[ext_resource type="Texture2D" uid="uid://cbmfskt6o32to" path="res://objects/logicgate/logicgates.png" id="2_br6wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7vad"]
+atlas = ExtResource("2_br6wf")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hwg4"]
+atlas = ExtResource("2_br6wf")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npneq"]
+atlas = ExtResource("2_br6wf")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34sm5"]
+atlas = ExtResource("2_br6wf")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjws4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7vad")
+}],
+"loop": true,
+"name": &"full",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hwg4")
+}],
+"loop": true,
+"name": &"inputa",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npneq")
+}],
+"loop": true,
+"name": &"inputb",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34sm5")
+}],
+"loop": true,
+"name": &"none",
+"speed": 0.0
+}]
+
+[node name="NotOrGate" type="Node2D"]
+script = ExtResource("1_b7vad")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bjws4")
+animation = &"none"
