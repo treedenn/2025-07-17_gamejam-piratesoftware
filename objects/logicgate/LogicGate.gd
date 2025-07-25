@@ -19,17 +19,17 @@ func _ready() -> void:
 	if InputB != null:
 		InputB.output_changed.connect(set_input_b)
 		
-	_update_output()
+	_update()
 
 func set_input_a(a: int):
 	if input_a != a:
 		input_a = a
-		_update_output()
+		_update()
 
 func set_input_b(b: int):
 	if input_b != b:
 		input_b = b
-		_update_output()
+		_update()
 		
 func _get_inputs() -> Vector2i:
 	return Vector2i(input_a, input_b)
@@ -43,5 +43,5 @@ func _set_output(output: int):
 		emit_signal("output_changed", _output)
 		#output_changed.emit(_output)
 
-func _update_output():
+func _update():
 	pass

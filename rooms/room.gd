@@ -5,8 +5,9 @@ extends Node2D
 @onready var _player := $Player
 @onready var _camera := $Camera2D
 
-@onready var _andgate1: LogicGate = $AndGate1
-@onready var _andgate2: LogicGate = $AndGate2
+@onready var t1_andgate1: LogicGate = $AndGate1
+@onready var t1_andgate2: LogicGate = $AndGate2
+@onready var t1_switch: Switch = $Switch
 @onready var _timer := $Timer
 
 var boundaries: Vector2i
@@ -33,7 +34,7 @@ func _on_timer_timeout() -> void:
 		#1:
 			#_andgate1.set_input_b(1)
 		#2:
-			#_andgate2.set_input_b(1)
+			#_switch.toggle()
 	#
 	#print("========== Counter: ", _counter)
 	#
@@ -45,8 +46,9 @@ func _on_timer_timeout() -> void:
 	#
 	#print("And gate 1 inputs: ", agi1)
 	#print("And gate 1 output: ", ago1)
-	#print("And gate 1 inputs: ", agi2)
-	#print("And gate 1 output: ", ago2)
+	#print("And gate 2 inputs: ", agi2)
+	#print("And gate 2 output: ", ago2)
+	#print("Switch status: ", _switch._active)
 	#
 	#_counter += 1
 	pass
