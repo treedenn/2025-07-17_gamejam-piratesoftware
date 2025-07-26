@@ -16,3 +16,4 @@ func _update_sprite():
 func _update():
 	var new_output := input_a | input_b
 	_set_output(new_output)
+	_update_sprite()

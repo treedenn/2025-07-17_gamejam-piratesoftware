@@ -5,9 +5,7 @@ extends Node2D
 @onready var _player := $Player
 @onready var _camera := $Camera2D
 
-@onready var t1_andgate1: LogicGate = $AndGate1
-@onready var t1_andgate2: LogicGate = $AndGate2
-@onready var t1_switch: Switch = $Switch
+ 
 @onready var _timer := $Timer
 
 var boundaries: Vector2i

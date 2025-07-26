@@ -22,11 +22,13 @@ func _ready() -> void:
 	_update()
 
 func set_input_a(a: int):
+	print(a, " A | Input A ", input_a)
 	if input_a != a:
 		input_a = a
 		_update()
 
 func set_input_b(b: int):
+	print(b, " B | Input B ", input_b)
 	if input_b != b:
 		input_b = b
 		_update()

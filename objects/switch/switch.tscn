@@ -1,15 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl7ddwoiouhmu"]
+[gd_scene load_steps=4 format=3 uid="uid://dl7ddwoiouhmu"]
 
 [ext_resource type="Script" uid="uid://d4memegctqrqw" path="res://objects/switch/switch.gd" id="1_pceir"]
-[ext_resource type="Texture2D" uid="uid://nnnmcvwewyoa" path="res://assets/Objectives/Assets.png" id="1_r7f0c"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pceir"]
-atlas = ExtResource("1_r7f0c")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sf65d"]
-atlas = ExtResource("1_r7f0c")
-region = Rect2(96, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://dyg3rkno4sgi4" path="res://assets/Objectives/Assets.png" id="1_r7f0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pceir"]
 size = Vector2(16, 16)
@@ -17,12 +9,11 @@ size = Vector2(16, 16)
 [node name="Switch" type="StaticBody2D"]
 script = ExtResource("1_pceir")
 
-[node name="OnSprite" type="Sprite2D" parent="."]
-visible = false
-texture = SubResource("AtlasTexture_pceir")
-
-[node name="OffSprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_sf65d")
+[node name="SwitchSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_r7f0c")
+hframes = 8
+vframes = 4
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pceir")

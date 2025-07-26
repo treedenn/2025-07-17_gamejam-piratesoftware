@@ -35,6 +35,16 @@ func safe_load_level(index: int):
 		return
 
 	get_tree().change_scene_to_packed(current_level)
+	
+	await get_tree().process_frame
+	_get_player_reference()
+	
+func _get_player_reference():
+	player = get_tree().get_first_node_in_group("Player")
+	if player:
+		print("GameManager - ", player, " is player")
+	else:
+		print("GameManager - No player found in current scene")
 
 # -- Restart current level --
 func restart_level():

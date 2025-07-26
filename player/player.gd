@@ -25,6 +25,8 @@ var _nothing_anim_value: int = 6
 
 var _interacted_node: Node2D
 
+var _can_interact: bool = false
+
 func _ready():
 	position = position.snapped(Vector2.ONE * TILE_SIZE) + Vector2.ONE * 8
 	
@@ -51,9 +53,6 @@ func _process(delta):
 	# Roll, at random, for the animation to run - if it rolls 6+ (_nothing_anim_value), it picks "Nothing"
 	#for the animation, otherwise plays one of the others. Done this way to weight towards "Nothing".
 	if not animation_player.is_playing():
-		_animation_chosen = randi_range(_min_anim_roll_value,_max_anim_roll_value)
-		if _animation_chosen >= _nothing_anim_value:
-			_animation_chosen = _nothing_anim_value
 		run_animation()
 
 func get_input_direction() -> Vector2i:
@@ -80,8 +79,16 @@ func canMove(dir: Vector2i) -> bool:
 
 # Function to run the animation based on previously rolled animation and current state
 func run_animation():
+	if animation_player.is_playing():
+		animation_player.stop()
+	
 	var state_string = State.keys()[_current_state]
 	
+	_animation_chosen = randi_range(_min_anim_roll_value,_max_anim_roll_value)
+	
+	if _animation_chosen >= _nothing_anim_value:
+			_animation_chosen = _nothing_anim_value
+			
 	print(_animation_chosen, " This is chosen anim")
 	print(state_string)
 	
@@ -99,18 +106,17 @@ func run_animation():
 		6:
 			animation_player.play(state_string + "Nothing")
 
-func can_interact() -> bool:
-	return true
-
 func _handle_interaction() -> void:
-	if can_interact():
+	if _can_interact:
 		if _interacted_node is Switch:
 			_interacted_node.toggle()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Switch:
 		_interacted_node = body
+		_can_interact = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if _interacted_node == body:
 		_interacted_node = null
+		_can_interact = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtp7nkqdqfpss"]
+
+[ext_resource type="Script" uid="uid://cyivkcqlxg37g" path="res://autoload/bgmmanager/bgm_manager.gd" id="1_oitgu"]
+[ext_resource type="AudioStream" uid="uid://dabxu8s2ytmv" path="res://assets/sounds/bgm/BaseBGM.ogg" id="2_aqjhr"]
+
+[node name="BGMManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oitgu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_aqjhr")
+volume_db = -10.0
