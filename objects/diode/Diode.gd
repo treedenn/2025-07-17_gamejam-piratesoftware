@@ -21,7 +21,8 @@ func receive_input(value: int):
 		print("RIGHT VALUE")
 		is_on = true
 		diode_light.enabled = true
-		gate_to_diode_line.modulate = Color.RED
+		if gate_to_diode_line:
+			gate_to_diode_line.modulate = Color.RED
 		#update_visual()
 		emit_signal("diode_activated")
 		#GameManager.load_next_level()

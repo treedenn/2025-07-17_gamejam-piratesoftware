@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=4 uid="uid://d1kwj6pb2q8vd"]
 
-[ext_resource type="Texture2D" uid="uid://b7uvgxwa5lnr8" path="res://rooms/assets/tileset.png" id="1_lwhkg"]
+[ext_resource type="Texture2D" uid="uid://nh7tjb7hluph" path="res://rooms/assets/tileset.png" id="1_lwhkg"]
 [ext_resource type="PackedScene" uid="uid://dfjeutjfcimhj" path="res://player/player.tscn" id="1_n2rm1"]
-[ext_resource type="Script" uid="uid://u7bcw5hesxur" path="res://rooms/room.gd" id="1_yv82f"]
-[ext_resource type="Texture2D" uid="uid://rhnduyuj3rlg" path="res://assets/Tiles/Tileset.png" id="3_w4cg4"]
-[ext_resource type="Texture2D" uid="uid://dbguftvvkicqs" path="res://assets/Tiles/GridSpot.png" id="4_v6lk3"]
+[ext_resource type="Script" path="res://rooms/room.gd" id="1_yv82f"]
+[ext_resource type="Texture2D" uid="uid://bj85qwnlq32lj" path="res://Assets/Tiles/Tileset.png" id="3_w4cg4"]
+[ext_resource type="Texture2D" uid="uid://g6mthq30enn3" path="res://Assets/Tiles/GridSpot.png" id="4_v6lk3"]
 [ext_resource type="PackedScene" uid="uid://bv0di27k8pqj3" path="res://objects/logicgate/andgate/AndGate.tscn" id="5_6436r"]
 [ext_resource type="PackedScene" uid="uid://dl7ddwoiouhmu" path="res://objects/switch/switch.tscn" id="5_v6lk3"]
 [ext_resource type="PackedScene" uid="uid://bsn7yged6hfy6" path="res://objects/logicgate/orgate/OrGate.tscn" id="7_17aq2"]
@@ -154,12 +154,12 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_n2rm1")
 sources/1 = SubResource("TileSetAtlasSource_ilnpg")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6436r"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r18k3"]
 texture = ExtResource("4_v6lk3")
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_17aq2"]
-sources/0 = SubResource("TileSetAtlasSource_6436r")
+sources/0 = SubResource("TileSetAtlasSource_r18k3")
 
 [node name="Room1" type="Node2D"]
 script = ExtResource("1_yv82f")

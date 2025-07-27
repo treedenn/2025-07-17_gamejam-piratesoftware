@@ -15,4 +15,5 @@ func _update_sprite():
 
 func _update():
 	var new_output := input_a ^ input_b
+	print("JEG KNEPPER DIN MOR: new_output")
 	_set_output(new_output)

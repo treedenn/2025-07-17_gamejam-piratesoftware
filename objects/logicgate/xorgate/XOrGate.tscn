@@ -1,30 +1,30 @@
 [gd_scene load_steps=9 format=3 uid="uid://dyhctjheshe0n"]
 
 [ext_resource type="Script" uid="uid://cwe6d0flwnrw6" path="res://objects/logicgate/andgate/AndGate.gd" id="1_yhq6j"]
-[ext_resource type="Texture2D" uid="uid://cbmfskt6o32to" path="res://objects/logicgate/logicgates.png" id="2_j3c34"]
-[ext_resource type="Script" uid="uid://dq08bnk2yjmaf" path="res://objects/logicgate/xorgate/XOrGate.gd" id="3_3rbw8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2xqc"]
-atlas = ExtResource("2_j3c34")
-region = Rect2(48, 64, 16, 16)
+[ext_resource type="Texture2D" uid="uid://bksmf3e7bmxli" path="res://Assets/Objectives/LogicGates.png" id="2_x2xqc"]
+[ext_resource type="Script" uid="uid://dq08bnk2yjmaf" path="res://objects/logicgate/xorgate/XorGate.gd" id="3_3rbw8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rbw8"]
-atlas = ExtResource("2_j3c34")
-region = Rect2(16, 64, 16, 16)
+atlas = ExtResource("2_x2xqc")
+region = Rect2(288, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mttvg"]
-atlas = ExtResource("2_j3c34")
-region = Rect2(32, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjqi3"]
+atlas = ExtResource("2_x2xqc")
+region = Rect2(192, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gtuyf"]
-atlas = ExtResource("2_j3c34")
-region = Rect2(0, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_syelr"]
+atlas = ExtResource("2_x2xqc")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbawb"]
+atlas = ExtResource("2_x2xqc")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bjws4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x2xqc")
+"texture": SubResource("AtlasTexture_3rbw8")
 }],
 "loop": true,
 "name": &"full",
@@ -32,7 +32,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rbw8")
+"texture": SubResource("AtlasTexture_pjqi3")
 }],
 "loop": true,
 "name": &"inputa",
@@ -40,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mttvg")
+"texture": SubResource("AtlasTexture_syelr")
 }],
 "loop": true,
 "name": &"inputb",
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gtuyf")
+"texture": SubResource("AtlasTexture_jbawb")
 }],
 "loop": true,
 "name": &"none",

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsn7yged6hfy6"]
 
-[ext_resource type="Texture2D" uid="uid://cg8djf5su4u8j" path="res://objects/logicgate/logicgates.png" id="2_vgymb"]
+[ext_resource type="Texture2D" uid="uid://cqo4mrsci0cu3" path="res://objects/logicgate/logicgates.png" id="2_vgymb"]
 [ext_resource type="Script" uid="uid://xbd2ftlso55" path="res://objects/logicgate/orgate/OrGate.gd" id="3_tg2dl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gy8h6"]
@@ -59,4 +59,4 @@ script = ExtResource("3_tg2dl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bjws4")
-animation = &"none"
+animation = &"full"

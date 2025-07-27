@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bv0di27k8pqj3"]
 
 [ext_resource type="Script" uid="uid://cwe6d0flwnrw6" path="res://objects/logicgate/andgate/AndGate.gd" id="1_jnbtl"]
-[ext_resource type="Texture2D" uid="uid://djbq4nsx6o4gr" path="res://assets/Objectives/LogicGates.png" id="2_jnbtl"]
+[ext_resource type="Texture2D" uid="uid://bksmf3e7bmxli" path="res://assets/Objectives/LogicGates.png" id="2_jnbtl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8d7v"]
 atlas = ExtResource("2_jnbtl")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://batxk5f76g8o6"]
 
 [ext_resource type="Script" uid="uid://cwe6d0flwnrw6" path="res://objects/logicgate/andgate/AndGate.gd" id="1_lpl6p"]
-[ext_resource type="Texture2D" uid="uid://cbmfskt6o32to" path="res://objects/logicgate/logicgates.png" id="2_j46ce"]
-[ext_resource type="Script" uid="uid://d2u2hbed1sf0a" path="res://objects/logicgate/xnorgate/NotXorGate.gd" id="3_f1532"]
+[ext_resource type="Texture2D" uid="uid://cqo4mrsci0cu3" path="res://objects/logicgate/logicgates.png" id="2_j46ce"]
+[ext_resource type="Script" path="res://objects/logicgate/xnorgate/NotXorGate.gd" id="3_f1532"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3c8j"]
 atlas = ExtResource("2_j46ce")
@@ -60,5 +60,5 @@ script = ExtResource("1_lpl6p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bjws4")
-animation = &"full"
+animation = &"inputb"
 script = ExtResource("3_f1532")

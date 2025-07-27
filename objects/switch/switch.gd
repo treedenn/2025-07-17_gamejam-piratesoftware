@@ -17,6 +17,7 @@ var player: Player
 func _ready() -> void:
 	_switch_sprites()
 	
+	_update_logic_gate()
 	
 	await get_tree().process_frame
 	player = GameManager.player
@@ -64,4 +65,18 @@ func _player_switch_states():
 		player._current_state = player.State.One
 		
 	player.run_animation()
+	
+func _update_logic_gate():
+	if logic_gate != null:
+		
+			
+		var active_int := _get_active_as_int()
+			
+		match logic_input:
+			0: 
+				logic_gate.set_input_a(active_int)
+				_toggle_line()
+			1:
+				logic_gate.set_input_b(active_int)
+				_toggle_line()
 	
