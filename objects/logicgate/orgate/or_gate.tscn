@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://7bh6kwkslt1i"]
+
+[ext_resource type="Texture2D" uid="uid://b5b6om3b2b4ae" path="res://assets/Objectives/LogicGates.png" id="2_ltj6j"]
+[ext_resource type="PackedScene" uid="uid://2fgvrejwqyfe" path="res://objects/signal_receiver_node.tscn" id="3_mfukg"]
+[ext_resource type="Script" uid="uid://xbd2ftlso55" path="res://objects/logicgate/orgate/or_gate.gd" id="3_tg2dl"]
+[ext_resource type="PackedScene" uid="uid://ceqe2mjgjcxqd" path="res://objects/signal_transmitter_node.tscn" id="4_lhbnp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1okv"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6awr"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1cbg"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltj6j"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1okv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1okv")
+}],
+"loop": true,
+"name": &"full",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6awr")
+}],
+"loop": true,
+"name": &"inputa",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1cbg")
+}],
+"loop": true,
+"name": &"inputb",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltj6j")
+}],
+"loop": true,
+"name": &"none",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yquh6"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhbnp"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnpci"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77mc0"]
+atlas = ExtResource("2_ltj6j")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltj6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yquh6")
+}],
+"loop": true,
+"name": &"full",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhbnp")
+}],
+"loop": true,
+"name": &"inputa",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnpci")
+}],
+"loop": true,
+"name": &"inputb",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77mc0")
+}],
+"loop": true,
+"name": &"none",
+"speed": 0.0
+}]
+
+[node name="OrGate" type="Node2D"]
+script = ExtResource("3_tg2dl")
+
+[node name="NormalState" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l1okv")
+animation = &"none"
+
+[node name="NotState" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_ltj6j")
+animation = &"none"
+
+[node name="SignalReceiverNode1" parent="." instance=ExtResource("3_mfukg")]
+
+[node name="SignalReceiverNode2" parent="." instance=ExtResource("3_mfukg")]
+
+[node name="SignalTransmitterNode" parent="." instance=ExtResource("4_lhbnp")]
