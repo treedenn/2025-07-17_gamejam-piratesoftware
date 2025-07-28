@@ -25,8 +25,6 @@ var _nothing_anim_value: int = 6
 
 var _interacted_node: Node2D
 
-var _can_interact: bool = false
-
 func _ready():
 	position = position.snapped(Vector2.ONE * TILE_SIZE) + Vector2.ONE * 8
 	
@@ -46,7 +44,7 @@ func _process(delta):
 		return
 
 	var dir = get_input_direction()
-	if dir != Vector2i.ZERO and canMove(dir):
+	if dir != Vector2i.ZERO and can_move(dir):
 		_moving = true
 		move(dir)
 	
@@ -72,7 +70,7 @@ func move(dir: Vector2i):
 	await tween.finished
 	_moving = false
 
-func canMove(dir: Vector2i) -> bool:
+func can_move(dir: Vector2i) -> bool:
 	raycast.target_position = dir * TILE_SIZE
 	raycast.force_raycast_update()
 	return !raycast.is_colliding() and _movement_cooldown_timer <= 0
@@ -107,16 +105,18 @@ func run_animation():
 			animation_player.play(state_string + "Nothing")
 
 func _handle_interaction() -> void:
-	if _can_interact:
+	if _interacted_node:
 		if _interacted_node is Switch:
 			_interacted_node.toggle()
+		if _interacted_node is TimedButton:
+			_interacted_node.press_button()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Switch:
 		_interacted_node = body
-		_can_interact = true
+	elif body is TimedButton:
+		_interacted_node = body
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if _interacted_node == body:
 		_interacted_node = null
-		_can_interact = false

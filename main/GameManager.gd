@@ -14,9 +14,8 @@ var level_node: Node
 
 # -- Load the first level on game start --
 func _ready():
-	pass
-	# TODO: Delete this
 	#safe_load_level.call_deferred(current_level_index)
+	pass
 
 # -- Load a level by index --
 func load_level(index: int):
