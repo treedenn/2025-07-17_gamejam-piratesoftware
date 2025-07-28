@@ -1,4 +1,4 @@
-class_name LogicGate extends Node2D
+class_name LogicGate extends StaticBody2D
 
 @export var reversed := false
 @export var transmit_to: SignalReceiver

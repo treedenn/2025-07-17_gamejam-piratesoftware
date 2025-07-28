@@ -1,9 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyhctjheshe0n"]
+[gd_scene load_steps=16 format=3 uid="uid://dyhctjheshe0n"]
 
-[ext_resource type="Texture2D" uid="uid://b5b6om3b2b4ae" path="res://assets/Objectives/LogicGates.png" id="2_x2xqc"]
+[ext_resource type="Texture2D" uid="uid://bksmf3e7bmxli" path="res://Assets/Objectives/LogicGates.png" id="2_x2xqc"]
 [ext_resource type="Script" uid="uid://dq08bnk2yjmaf" path="res://objects/logicgate/xorgate/xor_gate.gd" id="3_3rbw8"]
 [ext_resource type="PackedScene" uid="uid://2fgvrejwqyfe" path="res://objects/signal_receiver_node.tscn" id="3_m2igf"]
 [ext_resource type="PackedScene" uid="uid://ceqe2mjgjcxqd" path="res://objects/signal_transmitter_node.tscn" id="4_lf4u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2igf"]
+size = Vector2(48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2igf"]
 atlas = ExtResource("2_x2xqc")
@@ -107,12 +110,15 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="XorGate" type="Node2D"]
+[node name="XorGate" type="StaticBody2D"]
 script = ExtResource("3_3rbw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m2igf")
 
 [node name="NormalState" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uuidi")
-animation = &"none"
+animation = &"inputb"
 
 [node name="NotState" type="AnimatedSprite2D" parent="."]
 visible = false
