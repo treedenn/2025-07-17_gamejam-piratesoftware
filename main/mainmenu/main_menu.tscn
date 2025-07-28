@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5xocwkdiplsg"]
+[gd_scene load_steps=17 format=3 uid="uid://5xocwkdiplsg"]
 
 [ext_resource type="Script" uid="uid://b6lk0qxm0basi" path="res://main/mainmenu/main_menu.gd" id="1_do530"]
 [ext_resource type="Texture2D" uid="uid://cl1rdhbtfvnce" path="res://assets/Other/mainmenu.png" id="2_1ebh2"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c5xkaccglygfs" path="res://assets/Other/exitbutton_hover.png" id="8_xqndk"]
 [ext_resource type="Texture2D" uid="uid://dellqy8k7mumr" path="res://assets/Other/optionsbutton_hover.png" id="9_0scl8"]
 [ext_resource type="PackedScene" uid="uid://bfpnhahnlwv5n" path="res://main/levelpicker/level_picker.tscn" id="15_0scl8"]
+[ext_resource type="PackedScene" uid="uid://c2o5atindfhc7" path="res://main/settingsmenu/settings_menu.tscn" id="16_tvrat"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_do530")
@@ -70,6 +71,13 @@ offset_left = 254.0
 offset_top = 150.0
 offset_right = 254.0
 offset_bottom = 150.0
+
+[node name="SettingsMenu" parent="MainMenuCanvas" instance=ExtResource("16_tvrat")]
+visible = false
+offset_left = 189.0
+offset_top = 85.0
+offset_right = -182.0
+offset_bottom = -57.0
 
 [connection signal="pressed" from="MainMenuCanvas/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenuCanvas/ButtonContainer/LevelButton" to="." method="_on_level_button_pressed"]

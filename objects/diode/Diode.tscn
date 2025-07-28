@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvtp87jl4k3gt"]
 
-[ext_resource type="Script" uid="uid://cuvs08jf542xr" path="res://objects/diode/diode.gd" id="1_r7bjs"]
-[ext_resource type="Texture2D" uid="uid://nnnmcvwewyoa" path="res://assets/Objectives/Assets.png" id="2_6wttc"]
+[ext_resource type="Script" uid="uid://cuvs08jf542xr" path="res://objects/diode/Diode.gd" id="1_r7bjs"]
+[ext_resource type="Texture2D" uid="uid://dyg3rkno4sgi4" path="res://assets/Objectives/Assets.png" id="2_6wttc"]
 [ext_resource type="PackedScene" uid="uid://2fgvrejwqyfe" path="res://objects/signal_receiver_node.tscn" id="3_6wttc"]
 
 [sub_resource type="Gradient" id="Gradient_q6hg7"]

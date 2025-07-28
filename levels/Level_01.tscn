@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=4 uid="uid://cg5leu1vfk1o2"]
 
-[ext_resource type="Texture2D" uid="uid://div0t082k5dst" path="res://assets/Tiles/Tileset.png" id="1_j0sdw"]
-[ext_resource type="Texture2D" uid="uid://bt0cikood5itp" path="res://assets/Tiles/GridSpot.png" id="2_jy02f"]
+[ext_resource type="Texture2D" uid="uid://rhnduyuj3rlg" path="res://assets/Tiles/Tileset.png" id="1_j0sdw"]
+[ext_resource type="Texture2D" uid="uid://dbguftvvkicqs" path="res://assets/Tiles/GridSpot.png" id="2_jy02f"]
 [ext_resource type="PackedScene" uid="uid://dfjeutjfcimhj" path="res://player/player.tscn" id="3_5dxk1"]
 [ext_resource type="Script" uid="uid://b876636jfrgnk" path="res://levels/level_01.gd" id="4_kjd3d"]
 [ext_resource type="PackedScene" uid="uid://dyhctjheshe0n" path="res://objects/logicgate/xorgate/xor_gate.tscn" id="5_qdeet"]
 [ext_resource type="PackedScene" uid="uid://dl7ddwoiouhmu" path="res://objects/switch/switch.tscn" id="6_y72ps"]
 [ext_resource type="PackedScene" uid="uid://bv0di27k8pqj3" path="res://objects/logicgate/andgate/and_gate.tscn" id="7_xw3ee"]
-[ext_resource type="PackedScene" uid="uid://cvtp87jl4k3gt" path="res://objects/diode/diode.tscn" id="8_l0eo6"]
+[ext_resource type="PackedScene" uid="uid://cvtp87jl4k3gt" path="res://objects/diode/Diode.tscn" id="8_l0eo6"]
 [ext_resource type="PackedScene" uid="uid://dxa5v5g5egfy5" path="res://objects/button/button.tscn" id="9_jy02f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aut2e"]

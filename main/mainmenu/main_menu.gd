@@ -6,6 +6,7 @@ extends Node2D
 @onready var options_button: TextureButton = $MainMenuCanvas/ButtonContainer/OptionsButton
 @onready var exit_button: TextureButton = $MainMenuCanvas/ButtonContainer/ExitButton
 @onready var level_picker: Control = $MainMenuCanvas/LevelPicker
+@onready var settings_menu: Control = $MainMenuCanvas/SettingsMenu
 
 
 
@@ -19,7 +20,7 @@ func _on_start_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	pass
+	settings_menu.visible = true
 	
 
 

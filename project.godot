@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://main/GameManager.gd"
 BgmManager="*res://autoload/bgmmanager/bgm_manager.tscn"
+SettingsManager="*res://autoload/settingsmanager/settings_manager.gd"
 
 [display]
 

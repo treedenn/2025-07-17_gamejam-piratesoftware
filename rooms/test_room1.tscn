@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=4 uid="uid://d1kwj6pb2q8vd"]
 
 [ext_resource type="Script" uid="uid://u7bcw5hesxur" path="res://rooms/test_room1.gd" id="1_aucps"]
-[ext_resource type="Texture2D" uid="uid://be8yq1ux5cplb" path="res://rooms/assets/tileset.png" id="2_ittyu"]
-[ext_resource type="Texture2D" uid="uid://div0t082k5dst" path="res://assets/Tiles/Tileset.png" id="3_23yu5"]
-[ext_resource type="Texture2D" uid="uid://bt0cikood5itp" path="res://assets/Tiles/GridSpot.png" id="4_kj026"]
+[ext_resource type="Texture2D" uid="uid://b7uvgxwa5lnr8" path="res://rooms/assets/tileset.png" id="2_ittyu"]
+[ext_resource type="Texture2D" uid="uid://rhnduyuj3rlg" path="res://assets/Tiles/Tileset.png" id="3_23yu5"]
+[ext_resource type="Texture2D" uid="uid://dbguftvvkicqs" path="res://assets/Tiles/GridSpot.png" id="4_kj026"]
 [ext_resource type="PackedScene" uid="uid://dfjeutjfcimhj" path="res://player/player.tscn" id="5_cxljy"]
 [ext_resource type="PackedScene" uid="uid://bv0di27k8pqj3" path="res://objects/logicgate/andgate/and_gate.tscn" id="6_ittyu"]
 [ext_resource type="PackedScene" uid="uid://dl7ddwoiouhmu" path="res://objects/switch/switch.tscn" id="7_23yu5"]
-[ext_resource type="PackedScene" uid="uid://cvtp87jl4k3gt" path="res://objects/diode/diode.tscn" id="8_kj026"]
+[ext_resource type="PackedScene" uid="uid://cvtp87jl4k3gt" path="res://objects/diode/Diode.tscn" id="8_kj026"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2rm1"]
 texture = ExtResource("2_ittyu")
