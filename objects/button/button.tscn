@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxa5v5g5egfy5"]
+
+[ext_resource type="Script" uid="uid://dvlm14fc7utep" path="res://objects/button/button.gd" id="1_1aj4y"]
+[ext_resource type="Texture2D" uid="uid://nnnmcvwewyoa" path="res://assets/Objectives/Assets.png" id="1_icwve"]
+[ext_resource type="PackedScene" uid="uid://ceqe2mjgjcxqd" path="res://objects/signal_transmitter_node.tscn" id="2_wd1pd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd1pd"]
+atlas = ExtResource("1_icwve")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aj4y"]
+atlas = ExtResource("1_icwve")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbuxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd1pd")
+}],
+"loop": true,
+"name": &"off",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aj4y")
+}],
+"loop": true,
+"name": &"on",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3igj"]
+size = Vector2(16, 16)
+
+[node name="Button" type="StaticBody2D"]
+script = ExtResource("1_1aj4y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bbuxd")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f3igj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SignalTransmitterNode" parent="." instance=ExtResource("2_wd1pd")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

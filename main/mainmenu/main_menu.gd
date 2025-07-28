@@ -1,0 +1,28 @@
+extends Node2D
+
+@onready var button_container: VBoxContainer = $MainMenuCanvas/ButtonContainer
+@onready var start_button: TextureButton = $MainMenuCanvas/ButtonContainer/StartButton
+@onready var level_button: TextureButton = $MainMenuCanvas/ButtonContainer/LevelButton
+@onready var options_button: TextureButton = $MainMenuCanvas/ButtonContainer/OptionsButton
+@onready var exit_button: TextureButton = $MainMenuCanvas/ButtonContainer/ExitButton
+@onready var level_picker: Control = $MainMenuCanvas/LevelPicker
+@onready var settings_menu: Control = $MainMenuCanvas/SettingsMenu
+
+
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_start_button_pressed() -> void:
+	GameManager.safe_load_level.call_deferred(GameManager.current_level_index)
+
+
+func _on_options_button_pressed() -> void:
+	settings_menu.visible = true
+	
+
+
+func _on_level_button_pressed() -> void:
+	level_picker.visible = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceqe2mjgjcxqd"]
+
+[ext_resource type="Script" uid="uid://68o1xuc4sy32" path="res://objects/signal_transmitter.gd" id="1_u7lsy"]
+
+[node name="SignalTransmitterNode" type="Node"]
+script = ExtResource("1_u7lsy")

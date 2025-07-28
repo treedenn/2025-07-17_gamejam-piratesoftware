@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2025-07-16_gamejam-piratesoftware"
-run/main_scene="uid://d1kwj6pb2q8vd"
+run/main_scene="uid://5xocwkdiplsg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://main/GameManager.gd"
 BgmManager="*res://autoload/bgmmanager/bgm_manager.tscn"
+SettingsManager="*res://autoload/settingsmanager/settings_manager.gd"
 
 [display]
 

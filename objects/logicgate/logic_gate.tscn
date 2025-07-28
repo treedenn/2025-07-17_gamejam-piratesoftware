@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bumvo3h73eih3"]
+
+[ext_resource type="PackedScene" uid="uid://2fgvrejwqyfe" path="res://objects/signal_receiver_node.tscn" id="1_awrbe"]
+[ext_resource type="PackedScene" uid="uid://ceqe2mjgjcxqd" path="res://objects/signal_transmitter_node.tscn" id="2_r0c0e"]
+
+[node name="LogicGate" type="Node2D"]
+
+[node name="SignalReceiverNode1" parent="." instance=ExtResource("1_awrbe")]
+
+[node name="SignalReceiverNode2" parent="." instance=ExtResource("1_awrbe")]
+
+[node name="SignalTransmitterNode" parent="." instance=ExtResource("2_r0c0e")]

@@ -1,48 +1,38 @@
-class_name Switch
-extends StaticBody2D
-
-# Maybe make an interactable node or class
-@export var _active := false
-@export var logic_gate: LogicGate
-@export var line_to_gate: Line2D
-@export_enum("A", "B") var logic_input: int
+class_name Switch extends StaticBody2D
 
 signal on_changed(active: bool)
 
-
-@onready var switch_sprite: Sprite2D = $SwitchSprite
+# Maybe make an interactable node or class
+@export var _active := false
+@export var line_to_gate: Line2D
 
 var player: Player
 
+@onready var switch_sprite: Sprite2D = $SwitchSprite
+@onready var m_transmitter: SignalTransmitter = $SignalTransmitterNode
+
 func _ready() -> void:
-	_switch_sprites()
-	
-	_update_logic_gate()
-	
 	await get_tree().process_frame
 	player = GameManager.player
+	
+	_switch_sprites()
+	transmit()
 
 func toggle() -> void:
-	if logic_gate != null:
+	if !player._current_state == _get_signal_as_int():
+		_active = !_active
 		
-		if !player._current_state == _get_active_as_int():
-			_active = !_active
-			
-			var active_int := _get_active_as_int()
-			
-			_switch_sprites()
-			
-			match logic_input:
-				0: 
-					logic_gate.set_input_a(active_int)
-					_player_switch_states()
-					_toggle_line()
-				1:
-					logic_gate.set_input_b(active_int)
-					_player_switch_states()
-					_toggle_line()
+		transmit()
+		
+		_switch_sprites()
+		_toggle_line()
+		_player_switch_states()
+		
+func transmit():
+	var signal_as_int := _get_signal_as_int()
+	m_transmitter.send_signal(signal_as_int)
 					
-func _get_active_as_int() -> int:
+func _get_signal_as_int() -> int:
 	return 1 if _active else 0
 	
 func _switch_sprites():
@@ -65,18 +55,3 @@ func _player_switch_states():
 		player._current_state = player.State.One
 		
 	player.run_animation()
-	
-func _update_logic_gate():
-	if logic_gate != null:
-		
-			
-		var active_int := _get_active_as_int()
-			
-		match logic_input:
-			0: 
-				logic_gate.set_input_a(active_int)
-				_toggle_line()
-			1:
-				logic_gate.set_input_b(active_int)
-				_toggle_line()
-	

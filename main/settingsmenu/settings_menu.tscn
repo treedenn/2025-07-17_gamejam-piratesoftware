@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2o5atindfhc7"]
+
+[ext_resource type="Script" uid="uid://c1dn41ken407o" path="res://main/settingsmenu/settings_menu.gd" id="1_op2ch"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_op2ch")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 286.0
+offset_bottom = 242.0
+color = Color(0.114189, 0.15382, 0.181269, 1)
+
+[node name="SettingsContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 157.0
+offset_bottom = 178.0
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 49
+alignment = 2
+
+[node name="Label2" type="Label" parent="SettingsContainer/HBoxContainer6"]
+layout_mode = 2
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="SettingsContainer/HBoxContainer6"]
+layout_mode = 2
+text = "  X "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsContainer/HBoxContainer"]
+layout_mode = 2
+text = "Window Type"
+
+[node name="WindowOption" type="OptionButton" parent="SettingsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="SettingsContainer/HBoxContainer2"]
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Mute all "
+
+[node name="MuteCheck" type="CheckBox" parent="SettingsContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="SettingsContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Sfx"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="SettingsContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+
+[connection signal="item_selected" from="SettingsContainer/HBoxContainer/WindowOption" to="." method="_on_window_option_item_selected"]
+[connection signal="item_selected" from="SettingsContainer/HBoxContainer2/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="value_changed" from="SettingsContainer/HBoxContainer3/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="toggled" from="SettingsContainer/HBoxContainer5/MuteCheck" to="." method="_on_mute_check_toggled"]
