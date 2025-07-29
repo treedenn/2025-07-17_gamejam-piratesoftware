@@ -20,7 +20,9 @@ func _on_start_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	settings_menu.visible = true
+	if settings_menu._is_open == false:
+		settings_menu.visible = true
+		settings_menu._is_open = true
 	
 
 

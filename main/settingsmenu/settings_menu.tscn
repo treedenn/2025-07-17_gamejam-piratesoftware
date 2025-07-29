@@ -13,8 +13,8 @@ script = ExtResource("1_op2ch")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 286.0
-offset_bottom = 242.0
+offset_right = 259.0
+offset_bottom = 238.0
 color = Color(0.114189, 0.15382, 0.181269, 1)
 
 [node name="SettingsContainer" type="VBoxContainer" parent="."]
@@ -51,10 +51,13 @@ text = "Window Type"
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 selected = 0
-item_count = 2
+item_count = 3
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
+popup/item_1/text = "Borderless"
 popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="SettingsContainer"]
 layout_mode = 2
@@ -66,9 +69,14 @@ text = "Resolution"
 
 [node name="ResolutionOption" type="OptionButton" parent="SettingsContainer/HBoxContainer2"]
 layout_mode = 2
-item_count = 1
+selected = 2
+item_count = 3
 popup/item_0/text = "1920x1080"
 popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "640x360"
+popup/item_2/id = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="SettingsContainer"]
 layout_mode = 2
@@ -106,6 +114,7 @@ text = "Sfx"
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 
+[connection signal="pressed" from="SettingsContainer/HBoxContainer6/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="item_selected" from="SettingsContainer/HBoxContainer/WindowOption" to="." method="_on_window_option_item_selected"]
 [connection signal="item_selected" from="SettingsContainer/HBoxContainer2/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
 [connection signal="value_changed" from="SettingsContainer/HBoxContainer3/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]

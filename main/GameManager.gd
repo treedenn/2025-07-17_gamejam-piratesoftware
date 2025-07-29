@@ -5,7 +5,6 @@ extends Node
 # -- Properties --
 var current_level_index: int = 0
 var level_paths: Array[String] = [
-	"res://rooms/test_room1.tscn",
 	"res://levels/Level_01.tscn",
 ]
 

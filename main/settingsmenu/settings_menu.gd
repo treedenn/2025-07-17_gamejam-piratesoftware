@@ -1,29 +1,25 @@
 extends Control
 
-#-------------VARIABLES RELATED TO... WELL, OTHER OPTIONS MENU UI STUFF
+#-------------UI BUTTONS
 @onready var exit_button = $SettingsContainer/HBoxContainer6/ExitButton
 
-#-------------VARIABLES RELATED TO AUDIO SETTINGS--------------
+#-------------AUDIO SETTINGS--------------
 @onready var volume_slider = $SettingsContainer/HBoxContainer3/MasterVolumeSlider
 @onready var mute_check = $SettingsContainer/HBoxContainer5/MuteCheck
 
 
-#------------VARIABLES RELATED TO VIDEO SETTINGS--------------
+#------------VIDEO SETTINGS--------------
 @onready var resolution_button = $SettingsContainer/HBoxContainer2/ResolutionOption
 @onready var window_mode_button = $SettingsContainer/HBoxContainer/WindowOption
 
-
-#------------VARIABLES ON WHERE TO RETURN TO---------------
-#@onready var returnToPause: bool = false
-
-#----------------SIGNALS-----------------------
-
+var _is_open: bool = false
 
 #Ready function: Calls loadData, signals, and sets process to false on 
 func _ready() -> void:
 	#exit_button.button_down.connect(exit_pressed)
 	call_deferred("load_data")
 	set_process(false)
+	visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -73,9 +69,16 @@ func _on_resolution_option_item_selected(index: int) -> void:
 	match index:
 		0:
 			DisplayServer.window_set_size(Vector2i(1920, 1080))
+			get_viewport().set_size(Vector2i(1920, 1080))
 		1:
-			DisplayServer.window_set_size(Vector2i(1600, 900))
-		2:
 			DisplayServer.window_set_size(Vector2i(1280, 720))
-		3:
-			DisplayServer.window_set_size(Vector2i(1152, 648))
+			get_viewport().set_size(Vector2i(1280, 720))
+		2:
+			DisplayServer.window_set_size(Vector2i(640, 360))
+			get_viewport().set_size(Vector2i(640, 360))
+
+
+func _on_exit_button_pressed() -> void:
+	if _is_open:
+		visible = false
+		_is_open = false
