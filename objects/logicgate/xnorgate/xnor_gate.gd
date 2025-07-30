@@ -23,7 +23,7 @@ func _update_sprite():
 
 func _update():
 	var xor_output := m_receiver1.get_signal() ^ m_receiver2.get_signal()
-	var new_output := ~xor_output & 1
+	var new_output := 1 - xor_output
 	if reversed:
 		new_output = 1 - new_output
 		
