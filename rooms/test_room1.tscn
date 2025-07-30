@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbguftvvkicqs" path="res://assets/Tiles/GridSpot.png" id="4_kj026"]
 [ext_resource type="PackedScene" uid="uid://dfjeutjfcimhj" path="res://player/player.tscn" id="5_cxljy"]
 [ext_resource type="PackedScene" uid="uid://bv0di27k8pqj3" path="res://objects/logicgate/andgate/and_gate.tscn" id="6_ittyu"]
-[ext_resource type="PackedScene" uid="uid://dl7ddwoiouhmu" path="res://objects/switch/switch.tscn" id="7_23yu5"]
+[ext_resource type="PackedScene" uid="uid://d1cd82hhpqd2r" path="res://objects/switch/switch.tscn" id="7_23yu5"]
 [ext_resource type="PackedScene" uid="uid://cvtp87jl4k3gt" path="res://objects/diode/Diode.tscn" id="8_kj026"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2rm1"]

@@ -6,6 +6,10 @@ extends Node
 var current_level_index: int = 0
 var level_paths: Array[String] = [
 	"res://levels/Level_01.tscn",
+	"res://levels/level_02.tscn",
+	"res://levels/level_03.tscn",
+	"res://levels/level_04.tscn",
+	"res://levels/level_05.tscn"
 ]
 
 var current_level: PackedScene
