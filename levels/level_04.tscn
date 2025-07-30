@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://cb2soh5c7nix"]
 
 [ext_resource type="Script" uid="uid://bue64w4nkpmks" path="res://levels/level_04.gd" id="1_hgv6m"]
-[ext_resource type="Texture2D" uid="uid://rhnduyuj3rlg" path="res://Assets/Tiles/Tileset.png" id="2_5p57d"]
-[ext_resource type="Texture2D" uid="uid://dbguftvvkicqs" path="res://Assets/Tiles/GridSpot.png" id="3_r8aof"]
+[ext_resource type="Texture2D" uid="uid://rhnduyuj3rlg" path="res://assets/Tiles/Tileset.png" id="2_5p57d"]
+[ext_resource type="Texture2D" uid="uid://dbguftvvkicqs" path="res://assets/Tiles/GridSpot.png" id="3_r8aof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2w0k"]
 texture = ExtResource("2_5p57d")
