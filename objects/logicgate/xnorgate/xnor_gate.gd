@@ -23,7 +23,7 @@ func _update_sprite():
 
 func _update():
 	var xor_output := m_receiver1.get_signal() ^ m_receiver2.get_signal()
-	var new_output := ~xor_output & 1  # Invert XOR to get XNOR
+	var new_output := ~xor_output & 1
 	if reversed:
 		new_output = ~new_output & 1
 		
