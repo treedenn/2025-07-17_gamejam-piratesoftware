@@ -17,10 +17,12 @@ func _ready() -> void:
 func _on_next_level_button_pressed() -> void:
 	sfx_player.play()
 	GameManager.load_next_level()
+	BgmManager.audio_stream_player.play()
 	
 func _on_mainmenu_button_pressed() -> void:
 	sfx_player.play()
 	GameManager.return_to_menu()
+	BgmManager.audio_stream_player.play()
 
 
 func _on_exit_button_pressed() -> void:
