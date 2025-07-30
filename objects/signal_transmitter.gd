@@ -10,9 +10,7 @@ func add_receiver(receiver: SignalReceiver):
 	m_receivers.append(receiver)
 
 func delete_receiver(receiver: SignalReceiver):
-	for i in range(m_receivers.size()):
-		if m_receivers[i] == receiver:
-			m_receivers.remove_at(i)
+	m_receivers.erase(receiver)
 
 func send_signal(value: int):
 	for receiver in m_receivers:
