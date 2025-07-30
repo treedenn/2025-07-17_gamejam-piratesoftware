@@ -15,9 +15,9 @@ func _update_sprite():
 	var frameName := "none"
 	if m_receiver1.get_signal() == 1 && m_receiver2.get_signal() == 0:
 		frameName = "inputa"
-	if m_receiver1.get_signal() == 0 && m_receiver2.get_signal() == 1:
+	elif m_receiver1.get_signal() == 0 && m_receiver2.get_signal() == 1:
 		frameName = "inputb"
-	if m_receiver1.get_signal() == 1 && m_receiver2.get_signal() == 1:
+	elif m_receiver1.get_signal() == 1 && m_receiver2.get_signal() == 1:
 		frameName = "full"
 	m_sprite.animation = frameName
 
