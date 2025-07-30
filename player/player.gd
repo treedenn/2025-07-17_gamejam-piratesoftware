@@ -13,6 +13,7 @@ const TILE_SIZE = 16
 @onready var interact_area: Area2D = $Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var raycast := $RayCast2D
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
 var _moving := false
 var _movement_cooldown_timer := 0.0
@@ -67,6 +68,10 @@ func move(dir: Vector2i):
 	tween.tween_property(self, "position", target, animation_duration).set_trans(Tween.TRANS_SINE)
 
 	_movement_cooldown_timer = _movement_cooldown
+	
+	sfx_player.pitch_scale = randf_range(0.90, 1.1)
+	
+	sfx_player.play()
 	await tween.finished
 	_moving = false
 

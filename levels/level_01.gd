@@ -1,15 +1,15 @@
 class_name Level01 extends Node
 
 #Group 1: Switch1 & AndGate
-@onready var m_grp1_switch1: Switch = $Grp1/Switch1
-@onready var m_grp1_and_gate: AndGate = $Grp1/AndGate
+@onready var m_grp1_switch1: Switch = $SubViewport/SubViewport/Grp1/Switch1
+@onready var m_grp1_and_gate: AndGate = $SubViewport/SubViewport/Grp1/AndGate
 
 #Group 2: Switch1, Switch2 & XorGate
-@onready var m_grp2_switch1: Switch = $Grp2/Switch1
-@onready var m_grp2_switch2: Switch = $Grp2/Switch2
-@onready var m_grp2_xor_gate: XorGate = $Grp2/XorGate
+@onready var m_grp2_switch1: Switch = $SubViewport/SubViewport/Grp2/Switch1
+@onready var m_grp2_switch2: Switch = $SubViewport/SubViewport/Grp2/Switch2
+@onready var m_grp2_xor_gate: XorGate = $SubViewport/SubViewport/Grp2/XorGate
 
-@onready var m_diode: Diode = $Diode
+@onready var m_diode: Diode = $SubViewport/SubViewport/Diode
 
 func _wired():
 	#Switches inputs into XOrGate and XOrGate inputs into AndGate

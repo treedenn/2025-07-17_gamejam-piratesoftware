@@ -1,20 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2o5atindfhc7"]
+[gd_scene load_steps=3 format=3 uid="uid://c2o5atindfhc7"]
 
 [ext_resource type="Script" uid="uid://c1dn41ken407o" path="res://main/settingsmenu/settings_menu.gd" id="1_op2ch"]
+[ext_resource type="AudioStream" uid="uid://t6dnjd7kpbs3" path="res://assets/sounds/sfx/click.wav" id="2_2v7ra"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_op2ch")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 259.0
-offset_bottom = 238.0
+offset_right = 285.0
+offset_bottom = 240.0
 color = Color(0.114189, 0.15382, 0.181269, 1)
 
 [node name="SettingsContainer" type="VBoxContainer" parent="."]
@@ -26,7 +29,7 @@ offset_bottom = 178.0
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="SettingsContainer"]
 layout_mode = 2
-theme_override_constants/separation = 49
+theme_override_constants/separation = 60
 alignment = 2
 
 [node name="Label2" type="Label" parent="SettingsContainer/HBoxContainer6"]
@@ -59,25 +62,6 @@ popup/item_1/id = 1
 popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="SettingsContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Resolution"
-
-[node name="ResolutionOption" type="OptionButton" parent="SettingsContainer/HBoxContainer2"]
-layout_mode = 2
-selected = 2
-item_count = 3
-popup/item_0/text = "1920x1080"
-popup/item_0/id = 0
-popup/item_1/text = "1280x720"
-popup/item_1/id = 1
-popup/item_2/text = "640x360"
-popup/item_2/id = 2
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="SettingsContainer"]
 layout_mode = 2
 alignment = 1
@@ -89,6 +73,8 @@ text = "Master"
 [node name="MasterVolumeSlider" type="HSlider" parent="SettingsContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
+min_value = -50.0
+max_value = 50.0
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="SettingsContainer"]
 layout_mode = 2
@@ -114,8 +100,10 @@ text = "Sfx"
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2v7ra")
+
 [connection signal="pressed" from="SettingsContainer/HBoxContainer6/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="item_selected" from="SettingsContainer/HBoxContainer/WindowOption" to="." method="_on_window_option_item_selected"]
-[connection signal="item_selected" from="SettingsContainer/HBoxContainer2/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
 [connection signal="value_changed" from="SettingsContainer/HBoxContainer3/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="toggled" from="SettingsContainer/HBoxContainer5/MuteCheck" to="." method="_on_mute_check_toggled"]
