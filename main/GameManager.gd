@@ -56,10 +56,10 @@ func load_next_level():
 	if next_index >= level_paths.size():
 		# Optionally: show credits, return to menu, etc.
 		print("All levels complete!")
-		get_tree().change_scene_to_file("res://main/Main.tscn")
+		get_tree().change_scene_to_file("res://main/mainmenu/main_menu.tscn")
 	else:
-		load_level(next_index)
+		safe_load_level(next_index)
 
 # -- Go back to main menu --
 func return_to_menu():
-	get_tree().change_scene_to_file("res://main/Main.tscn")
+	get_tree().change_scene_to_file("res://main/mainmenu/main_menu.tscn")

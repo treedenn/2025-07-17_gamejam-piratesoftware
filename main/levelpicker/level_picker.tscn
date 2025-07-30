@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfpnhahnlwv5n"]
+[gd_scene load_steps=5 format=3 uid="uid://bfpnhahnlwv5n"]
 
 [ext_resource type="Script" uid="uid://cqo87xjx1duxi" path="res://main/levelpicker/level_picker.gd" id="1_is1s7"]
 [ext_resource type="PackedScene" uid="uid://bccy1owmg6sce" path="res://main/levelpicker/level_button.tscn" id="2_u75ob"]
 [ext_resource type="Texture2D" uid="uid://b7cyjiij8ng1j" path="res://assets/Other/levelspicker.png" id="3_coslc"]
+[ext_resource type="AudioStream" uid="uid://t6dnjd7kpbs3" path="res://assets/sounds/sfx/click.wav" id="4_0t37e"]
 
 [node name="LevelPicker" type="Control"]
 layout_mode = 3
@@ -24,7 +25,11 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [node name="LevelButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 130.0
 offset_bottom = 130.0
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0t37e")

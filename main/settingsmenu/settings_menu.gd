@@ -1,4 +1,5 @@
 extends Control
+class_name SettingsMenu
 
 #-------------UI BUTTONS
 @onready var exit_button = $SettingsContainer/HBoxContainer6/ExitButton
@@ -9,10 +10,12 @@ extends Control
 
 
 #------------VIDEO SETTINGS--------------
-@onready var resolution_button = $SettingsContainer/HBoxContainer2/ResolutionOption
 @onready var window_mode_button = $SettingsContainer/HBoxContainer/WindowOption
 
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
+
 var _is_open: bool = false
+var _start_up_done: bool = false
 
 #Ready function: Calls loadData, signals, and sets process to false on 
 func _ready() -> void:
@@ -20,19 +23,9 @@ func _ready() -> void:
 	call_deferred("load_data")
 	set_process(false)
 	visible = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if volume_slider.value == 0:
-		AudioServer.set_bus_mute(0, true)
-		
-	elif mute_check.button_pressed == true:
-		AudioServer.set_bus_mute(0, true)
-		
-	else:
-		AudioServer.set_bus_mute(0, false)
-			
+	
+	await get_tree().process_frame
+	_start_up_done = true
 
 func load_data() -> void:
 	_on_master_volume_slider_value_changed(SettingsManager.get_master_volume())
@@ -41,17 +34,16 @@ func load_data() -> void:
 	_on_mute_check_toggled(SettingsManager.get_mute_volume())
 	mute_check.set_pressed_no_signal(SettingsManager.get_mute_volume())
 	
-	_on_resolution_option_item_selected(SettingsManager.get_resolution_index())
-	resolution_button.select(SettingsManager.get_resolution_index())
-	
 	_on_window_option_item_selected(SettingsManager.get_window_mode_index())
 	window_mode_button.select(SettingsManager.get_window_mode_index())
 
 func _on_master_volume_slider_value_changed(value: float) -> void:
+	_play_sfx()
 	AudioServer.set_bus_volume_db(0, value)
 
 
 func _on_mute_check_toggled(toggled_on: bool) -> void:
+	_play_sfx()
 	AudioServer.set_bus_mute(0,toggled_on)
 
 
@@ -59,26 +51,31 @@ func _on_window_option_item_selected(index: int) -> void:
 	match index:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			_play_sfx()
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			_play_sfx()
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			_play_sfx()
+			
+func open_settings_menu():
+	print(_is_open, " is it open?")
+	if _is_open == false:
+		visible = true
+		_is_open = true
 
+func close_settings_menu():
+	if _is_open:
+		visible = false
+		_is_open = false
 
-func _on_resolution_option_item_selected(index: int) -> void:
-	match index:
-		0:
-			DisplayServer.window_set_size(Vector2i(1920, 1080))
-			get_viewport().set_size(Vector2i(1920, 1080))
-		1:
-			DisplayServer.window_set_size(Vector2i(1280, 720))
-			get_viewport().set_size(Vector2i(1280, 720))
-		2:
-			DisplayServer.window_set_size(Vector2i(640, 360))
-			get_viewport().set_size(Vector2i(640, 360))
-
+func _play_sfx():
+	if _start_up_done:
+		sfx_player.play()
 
 func _on_exit_button_pressed() -> void:
 	if _is_open:
 		visible = false
 		_is_open = false
+		sfx_player.play()

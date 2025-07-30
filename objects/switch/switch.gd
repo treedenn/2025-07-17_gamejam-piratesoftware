@@ -7,9 +7,11 @@ signal on_changed(active: bool)
 @export var line_to_gate: Line2D
 
 var player: Player
+var start_up_done: bool = false
 
 @onready var switch_sprite: Sprite2D = $SwitchSprite
 @onready var m_transmitter: SignalTransmitter = $SignalTransmitterNode
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -17,7 +19,9 @@ func _ready() -> void:
 	
 	_switch_sprites()
 	transmit()
-
+	
+	start_up_done = true
+	
 func toggle() -> void:
 	if !player._current_state == _get_signal_as_int():
 		_active = !_active
@@ -36,6 +40,9 @@ func _get_signal_as_int() -> int:
 	return 1 if _active else 0
 	
 func _switch_sprites():
+	if start_up_done == true:
+		sfx_player.play()
+		
 	if _active:
 		switch_sprite.frame = 5
 	if !_active:

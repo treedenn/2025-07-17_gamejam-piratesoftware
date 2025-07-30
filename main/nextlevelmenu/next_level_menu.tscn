@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=3 uid="uid://bi65kh5uc1olo"]
+
+[ext_resource type="Script" uid="uid://750vjy3c3vw2" path="res://main/nextlevelmenu/next_level_menu.gd" id="1_c0dmn"]
+[ext_resource type="Texture2D" uid="uid://b7cyjiij8ng1j" path="res://assets/Other/levelspicker.png" id="2_pqh6u"]
+[ext_resource type="Texture2D" uid="uid://bsn4m6rhf4hhi" path="res://assets/Other/nextlevelbutton_normal.png" id="3_04ncf"]
+[ext_resource type="Texture2D" uid="uid://btgrird61pyca" path="res://assets/Other/nextlevelbutton_pressed.png" id="4_mb3uj"]
+[ext_resource type="Texture2D" uid="uid://54ty8rc5n6fe" path="res://assets/Other/nextlevelbutton_hovered.png" id="5_28i18"]
+[ext_resource type="Texture2D" uid="uid://g518emikjheo" path="res://assets/Other/optionsbutton_normal.png" id="6_0jc4n"]
+[ext_resource type="Texture2D" uid="uid://dfjj1yve7vrx7" path="res://assets/Other/optionsbutton_pressed.png" id="7_61avd"]
+[ext_resource type="Texture2D" uid="uid://dellqy8k7mumr" path="res://assets/Other/optionsbutton_hover.png" id="8_2sktr"]
+[ext_resource type="Texture2D" uid="uid://cchec0teul22p" path="res://assets/Other/mainmenubutton_normal.png" id="9_wc83t"]
+[ext_resource type="Texture2D" uid="uid://cogvstda1yue0" path="res://assets/Other/mainmenubutton_pressed.png" id="10_q4f8a"]
+[ext_resource type="Texture2D" uid="uid://dyt4lsr1rnitk" path="res://assets/Other/mainmenubutton_hover.png" id="11_i7kdx"]
+[ext_resource type="Texture2D" uid="uid://cehm8656xuyvg" path="res://assets/Other/exitbutton_normal.png" id="12_k7oeh"]
+[ext_resource type="Texture2D" uid="uid://bkyxnjmc4ttko" path="res://assets/Other/exitbutton_pressed.png" id="13_tbhn5"]
+[ext_resource type="Texture2D" uid="uid://c5xkaccglygfs" path="res://assets/Other/exitbutton_hover.png" id="14_ong0c"]
+[ext_resource type="AudioStream" uid="uid://t6dnjd7kpbs3" path="res://assets/sounds/sfx/click.wav" id="15_pqh6u"]
+
+[node name="NextLevelMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c0dmn")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 257.0
+offset_bottom = 267.0
+texture = ExtResource("2_pqh6u")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 257.0
+offset_bottom = 268.0
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Level Completed!"
+horizontal_alignment = 1
+
+[node name="NextLevelButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_04ncf")
+texture_pressed = ExtResource("4_mb3uj")
+texture_hover = ExtResource("5_28i18")
+stretch_mode = 3
+
+[node name="SettingsButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_0jc4n")
+texture_pressed = ExtResource("7_61avd")
+texture_hover = ExtResource("8_2sktr")
+stretch_mode = 3
+
+[node name="MainmenuButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_wc83t")
+texture_pressed = ExtResource("10_q4f8a")
+texture_hover = ExtResource("11_i7kdx")
+stretch_mode = 3
+
+[node name="ExitButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_k7oeh")
+texture_pressed = ExtResource("13_tbhn5")
+texture_hover = ExtResource("14_ong0c")
+stretch_mode = 3
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_pqh6u")
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MainmenuButton" to="." method="_on_mainmenu_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
