@@ -11,6 +11,12 @@ class_name Level01 extends Node
 
 @onready var m_diode: Diode = $SubViewport/SubViewport/Diode
 
+@onready var next_level_menu: NextLevelMenu = $SubViewport/CanvasLayer/NextLevelMenu
+
+func _ready() -> void:
+	m_diode.diode_activated.connect(_on_level_completed)
+	_wired()
+
 func _wired():
 	#Switches inputs into XOrGate and XOrGate inputs into AndGate
 	m_grp2_switch1.m_transmitter.set_receiver(m_grp2_xor_gate.m_receiver1)
@@ -21,5 +27,8 @@ func _wired():
 	m_grp1_switch1.m_transmitter.set_receiver(m_grp1_and_gate.m_receiver2)
 	m_grp1_and_gate.m_transmitter.set_receiver(m_diode.m_receiver)
 
-func _ready():
-	_wired()
+func _on_level_completed():
+	next_level_menu.level_completed = true
+	
+	next_level_menu.open_next_level_menu()
+	

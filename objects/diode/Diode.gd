@@ -2,17 +2,18 @@ class_name Diode extends Node2D
 
 @export var is_on: bool = false
 @export var expected_input: int = 1
-
 @export var gate_to_diode_line: Line2D
 
 @onready var m_receiver: SignalReceiver = $SignalReceiverNode
 @onready var diode_light: PointLight2D = $DiodeLight
+
 
 signal diode_activated
 
 func _ready() -> void:
 	diode_light.enabled = false
 	m_receiver.signal_changed.connect(receive_input)
+
 
 func turn_on():
 	is_on = true

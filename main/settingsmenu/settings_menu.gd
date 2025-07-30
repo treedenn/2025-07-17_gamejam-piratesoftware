@@ -58,6 +58,17 @@ func _on_window_option_item_selected(index: int) -> void:
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			_play_sfx()
+			
+func open_settings_menu():
+	print(_is_open, " is it open?")
+	if _is_open == false:
+		visible = true
+		_is_open = true
+
+func close_settings_menu():
+	if _is_open:
+		visible = false
+		_is_open = false
 
 func _play_sfx():
 	if _start_up_done:

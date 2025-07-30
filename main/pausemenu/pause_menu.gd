@@ -28,11 +28,7 @@ func _close_pause_menu():
 	if _is_open:
 		visible = false
 		_is_open = false
-		_close_settings_menu()
-
-func _close_settings_menu():
-	settings_menu.visible = false
-	settings_menu._is_open = false
+		settings_menu.close_settings_menu()
 
 func _on_continue_button_pressed() -> void:
 	sfx_player.play()
@@ -44,5 +40,4 @@ func _on_exit_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	sfx_player.play()
-	settings_menu.visible = true
-	settings_menu._is_open = true
+	settings_menu.open_settings_menu()

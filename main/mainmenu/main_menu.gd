@@ -14,17 +14,13 @@ func _on_exit_button_pressed() -> void:
 	sfx_player.play()
 	get_tree().quit()
 
-
 func _on_start_button_pressed() -> void:
 	sfx_player.play()
 	GameManager.safe_load_level.call_deferred(GameManager.current_level_index)
 	
 func _on_options_button_pressed() -> void:
-	if settings_menu._is_open == false:
-		sfx_player.play()
-		settings_menu.visible = true
-		settings_menu._is_open = true
-
+	settings_menu.open_settings_menu()
+	sfx_player.play()
 
 func _on_level_button_pressed() -> void:
 	sfx_player.play()
