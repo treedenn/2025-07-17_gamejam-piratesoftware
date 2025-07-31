@@ -1,25 +1,26 @@
 class_name XorGate extends LogicGate
 
-@onready var m_sprite: AnimatedSprite2D = $NormalState
+@onready var m_sprite: Sprite2D = $MSprite
 
 func _ready():
-	if reversed:
-		m_sprite.visible = false
-		m_sprite = $NotState
-	else:
-		$NotState.visible = false
+	_update_sprite()
 		
 	super._ready()
 
 func _update_sprite():
-	var frameName := "none"
+	
 	if m_receiver1.get_signal() == 1 && m_receiver2.get_signal() == 0:
-		frameName = "inputa"
+		m_sprite.frame = 4
+		if line_to_gate:
+			line_to_gate.modulate = Color.RED
 	if m_receiver1.get_signal() == 0 && m_receiver2.get_signal() == 1:
-		frameName = "inputb"
+		m_sprite.frame = 5
+		if line_to_gate:
+			line_to_gate.modulate = Color.RED
 	if m_receiver1.get_signal() == 1 && m_receiver2.get_signal() == 1:
-		frameName = "full"
-	m_sprite.animation = frameName
+		if line_to_gate:
+			line_to_gate.modulate = Color.WHITE
+		m_sprite.frame = 6
 
 func _update():
 	var new_output := m_receiver1.get_signal() ^ m_receiver2.get_signal()

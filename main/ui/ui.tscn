@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjv5fwla3ea80"]
+
+[ext_resource type="PackedScene" uid="uid://bi65kh5uc1olo" path="res://main/nextlevelmenu/next_level_menu.tscn" id="1_h1m4p"]
+[ext_resource type="Script" uid="uid://bixl2by1nch5p" path="res://main/ui/ui.gd" id="1_orcf1"]
+[ext_resource type="PackedScene" uid="uid://4ursnx3s4woc" path="res://main/pausemenu/pause_menu.tscn" id="2_orcf1"]
+[ext_resource type="PackedScene" uid="uid://c2o5atindfhc7" path="res://main/settingsmenu/settings_menu.tscn" id="3_r5bxg"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_orcf1")
+
+[node name="NextLevelMenu" parent="." node_paths=PackedStringArray("settings_menu") instance=ExtResource("1_h1m4p")]
+offset_left = -127.0
+offset_top = -132.0
+offset_right = -127.0
+offset_bottom = -132.0
+settings_menu = NodePath("../SettingsMenu")
+
+[node name="PauseMenu" parent="." node_paths=PackedStringArray("settings_menu") instance=ExtResource("2_orcf1")]
+offset_left = -89.0
+offset_top = -117.0
+offset_right = -89.0
+offset_bottom = -117.0
+settings_menu = NodePath("../SettingsMenu")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_r5bxg")]
+offset_left = -142.0
+offset_top = -130.0
+offset_right = -142.0
+offset_bottom = -130.0

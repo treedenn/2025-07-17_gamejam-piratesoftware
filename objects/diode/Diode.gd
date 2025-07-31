@@ -6,7 +6,6 @@ class_name Diode extends Node2D
 
 @onready var m_receiver: SignalReceiver = $SignalReceiverNode
 @onready var diode_light: PointLight2D = $DiodeLight
-@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
 
 signal diode_activated
@@ -19,10 +18,9 @@ func _ready() -> void:
 func turn_on():
 	is_on = true
 	diode_light.enabled = true
-	emit_signal("diode_activated")
+	diode_activated.emit()
 	
 	BgmManager.audio_stream_player.stop()
-	sfx_player.play()
 	
 	if gate_to_diode_line:
 		gate_to_diode_line.modulate = Color.RED
@@ -35,10 +33,10 @@ func turn_off():
 
 func receive_input(value: int):
 	if value == expected_input:
+		print(value, " DIODE RECEIVING VALUE")
 		turn_on()
-		#update_visual()
-		#GameManager.load_next_level()
 	else:
+		print("WRONG INPUT")
 		turn_off()
 
 #func update_visual():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cg5leu1vfk1o2"]
+[gd_scene load_steps=15 format=4 uid="uid://cg5leu1vfk1o2"]
 
 [ext_resource type="Texture2D" uid="uid://rhnduyuj3rlg" path="res://assets/Tiles/Tileset.png" id="1_j0sdw"]
 [ext_resource type="Texture2D" uid="uid://dbguftvvkicqs" path="res://assets/Tiles/GridSpot.png" id="2_jy02f"]
@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d1cd82hhpqd2r" path="res://objects/switch/switch.tscn" id="6_y72ps"]
 [ext_resource type="PackedScene" uid="uid://bv0di27k8pqj3" path="res://objects/logicgate/andgate/and_gate.tscn" id="7_xw3ee"]
 [ext_resource type="PackedScene" uid="uid://cvtp87jl4k3gt" path="res://objects/diode/Diode.tscn" id="8_l0eo6"]
-[ext_resource type="PackedScene" uid="uid://bi65kh5uc1olo" path="res://main/nextlevelmenu/next_level_menu.tscn" id="9_2jqni"]
-[ext_resource type="PackedScene" uid="uid://4ursnx3s4woc" path="res://main/pausemenu/pause_menu.tscn" id="9_ad2kw"]
-[ext_resource type="PackedScene" uid="uid://c2o5atindfhc7" path="res://main/settingsmenu/settings_menu.tscn" id="10_e5vfs"]
+[ext_resource type="PackedScene" uid="uid://bjv5fwla3ea80" path="res://main/ui/ui.tscn" id="9_e5vfs"]
+[ext_resource type="AudioStream" uid="uid://b2g6wpujqfxxs" path="res://assets/sounds/sfx/win_sfx.wav" id="12_lqh70"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aut2e"]
 texture = ExtResource("1_j0sdw")
@@ -283,31 +282,17 @@ position = Vector2(168, 56)
 _active = true
 line_to_gate = NodePath("../../Lines/Line2D3")
 
-[node name="XorGate" parent="SubViewport/SubViewport/Grp2" instance=ExtResource("5_qdeet")]
+[node name="XorGate" parent="SubViewport/SubViewport/Grp2" node_paths=PackedStringArray("line_to_gate") instance=ExtResource("5_qdeet")]
 position = Vector2(120, 56)
+line_to_gate = NodePath("../../Lines/Line2D")
 
-[node name="Diode" parent="SubViewport/SubViewport" instance=ExtResource("8_l0eo6")]
+[node name="Diode" parent="SubViewport/SubViewport" node_paths=PackedStringArray("gate_to_diode_line") instance=ExtResource("8_l0eo6")]
 top_level = true
 position = Vector2(72, 183)
+gate_to_diode_line = NodePath("../Lines/Line2D5")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+[node name="UI" parent="SubViewport" instance=ExtResource("9_e5vfs")]
+visible = false
 
-[node name="NextLevelMenu" parent="SubViewport/CanvasLayer" node_paths=PackedStringArray("settings_menu") instance=ExtResource("9_2jqni")]
-offset_left = -127.0
-offset_top = -132.0
-offset_right = -127.0
-offset_bottom = -132.0
-settings_menu = NodePath("../SettingsMenu")
-
-[node name="PauseMenu" parent="SubViewport/CanvasLayer" node_paths=PackedStringArray("settings_menu") instance=ExtResource("9_ad2kw")]
-offset_left = -89.0
-offset_top = -117.0
-offset_right = -89.0
-offset_bottom = -117.0
-settings_menu = NodePath("../SettingsMenu")
-
-[node name="SettingsMenu" parent="SubViewport/CanvasLayer" instance=ExtResource("10_e5vfs")]
-offset_left = -142.0
-offset_top = -130.0
-offset_right = -142.0
-offset_bottom = -130.0
+[node name="WinSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_lqh70")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://gua4ejqknngr"]
+
+[ext_resource type="Script" uid="uid://clp86m77lda88" path="res://objects/logicgate/notgate/not_gate.gd" id="1_1cyn0"]
+[ext_resource type="Texture2D" uid="uid://djbq4nsx6o4gr" path="res://assets/Objectives/LogicGates.png" id="2_omvv1"]
+[ext_resource type="Script" uid="uid://d1c6257vnplys" path="res://objects/signal_receiver.gd" id="3_5dk77"]
+[ext_resource type="Script" uid="uid://68o1xuc4sy32" path="res://objects/signal_transmitter.gd" id="4_oeb12"]
+[ext_resource type="Texture2D" uid="uid://3gklrbu2yl7g" path="res://assets/Objectives/gates_visual.png" id="5_5dk77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeb12"]
+size = Vector2(49, 49)
+
+[node name="NOTGate" type="StaticBody2D"]
+script = ExtResource("1_1cyn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_oeb12")
+
+[node name="MSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_omvv1")
+hframes = 8
+frame = 1
+
+[node name="SignalReceiverNode1" type="Node" parent="."]
+script = ExtResource("3_5dk77")
+metadata/_custom_type_script = "uid://d1c6257vnplys"
+
+[node name="SignalReceiverNode2" type="Node" parent="."]
+script = ExtResource("3_5dk77")
+metadata/_custom_type_script = "uid://d1c6257vnplys"
+
+[node name="SignalTransmitterNode" type="Node" parent="."]
+script = ExtResource("4_oeb12")
+metadata/_custom_type_script = "uid://68o1xuc4sy32"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -12)
+texture = ExtResource("5_5dk77")
+offset = Vector2(-2, 0)
+hframes = 6
+frame = 1

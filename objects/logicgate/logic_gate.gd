@@ -2,6 +2,7 @@ class_name LogicGate extends StaticBody2D
 
 @export var reversed := false
 @export var transmit_to: SignalReceiver
+@export var line_to_gate: Line2D
 
 @onready var m_receiver1: SignalReceiver = $SignalReceiverNode1
 @onready var m_receiver2: SignalReceiver = $SignalReceiverNode2
@@ -15,6 +16,7 @@ func _ready():
 	_update()
 	
 func _on_input_changed(new_signal: int):
+	print(new_signal, " receiving new signal to ", name)
 	_update_sprite()
 	_update()
 

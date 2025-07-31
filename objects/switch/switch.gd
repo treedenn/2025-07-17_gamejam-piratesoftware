@@ -18,6 +18,7 @@ func _ready() -> void:
 	player = GameManager.player
 	
 	_switch_sprites()
+	_toggle_line()
 	transmit()
 	
 	start_up_done = true

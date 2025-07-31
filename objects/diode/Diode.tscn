@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvtp87jl4k3gt"]
+[gd_scene load_steps=6 format=3 uid="uid://cvtp87jl4k3gt"]
 
 [ext_resource type="Script" uid="uid://cuvs08jf542xr" path="res://objects/diode/Diode.gd" id="1_r7bjs"]
 [ext_resource type="Texture2D" uid="uid://dyg3rkno4sgi4" path="res://assets/Objectives/Assets.png" id="2_6wttc"]
 [ext_resource type="PackedScene" uid="uid://2fgvrejwqyfe" path="res://objects/signal_receiver_node.tscn" id="3_6wttc"]
-[ext_resource type="AudioStream" uid="uid://b2g6wpujqfxxs" path="res://assets/sounds/sfx/win_sfx.wav" id="4_q6hg7"]
 
 [sub_resource type="Gradient" id="Gradient_q6hg7"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -30,6 +29,3 @@ color = Color(0.144058, 0.838748, 1.54018e-06, 1)
 texture = SubResource("GradientTexture2D_hlua5")
 
 [node name="SignalReceiverNode" parent="." instance=ExtResource("3_6wttc")]
-
-[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_q6hg7")

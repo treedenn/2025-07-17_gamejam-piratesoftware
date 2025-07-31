@@ -3,6 +3,8 @@ class_name OrGate extends LogicGate
 @onready var m_sprite: AnimatedSprite2D = $NormalState
 
 func _ready():
+	_update_sprite()
+	
 	if reversed:
 		m_sprite.visible = false
 		m_sprite = $NotState

@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bv0di27k8pqj3"]
+[gd_scene load_steps=17 format=3 uid="uid://bv0di27k8pqj3"]
 
 [ext_resource type="Script" uid="uid://cwe6d0flwnrw6" path="res://objects/logicgate/andgate/and_gate.gd" id="1_jnbtl"]
 [ext_resource type="Texture2D" uid="uid://djbq4nsx6o4gr" path="res://assets/Objectives/LogicGates.png" id="2_jnbtl"]
 [ext_resource type="PackedScene" uid="uid://2fgvrejwqyfe" path="res://objects/signal_receiver_node.tscn" id="3_a3mm6"]
 [ext_resource type="PackedScene" uid="uid://ceqe2mjgjcxqd" path="res://objects/signal_transmitter_node.tscn" id="4_io0d7"]
+[ext_resource type="Texture2D" uid="uid://3gklrbu2yl7g" path="res://assets/Objectives/gates_visual.png" id="5_fq3ms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80e00"]
 size = Vector2(48, 48)
@@ -130,3 +131,8 @@ animation = &"none"
 [node name="SignalReceiverNode2" parent="." instance=ExtResource("3_a3mm6")]
 
 [node name="SignalTransmitterNode" parent="." instance=ExtResource("4_io0d7")]
+
+[node name="SpriteVisual" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("5_fq3ms")
+hframes = 6

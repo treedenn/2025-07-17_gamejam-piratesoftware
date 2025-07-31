@@ -11,12 +11,14 @@ class_name Level01 extends Node
 @onready var sub_viewport_container: SubViewportContainer = $SubViewport
 
 @onready var m_diode: Diode = $SubViewport/SubViewport/Diode
+@onready var ui: CanvasLayer = $SubViewport/UI
 
-@onready var next_level_menu: NextLevelMenu = $SubViewport/CanvasLayer/NextLevelMenu
+@onready var next_level_menu: NextLevelMenu = ui.next_level_menu
 
 @onready var tile_map_layer: TileMapLayer = $SubViewport/SubViewport/TileMapLayer
 @onready var tile_map_layer_2: TileMapLayer = $SubViewport/SubViewport/TileMapLayer2
 
+@onready var win_sfx: AudioStreamPlayer = $WinSfx
 
 func _ready() -> void:
 	m_diode.diode_activated.connect(_on_level_completed)
@@ -41,6 +43,7 @@ func _wired():
 
 func _on_level_completed():
 	next_level_menu.level_completed = true
+	win_sfx.play()
 	
 	next_level_menu.open_next_level_menu()
 	
