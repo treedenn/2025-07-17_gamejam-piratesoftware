@@ -113,6 +113,10 @@ animations = [{
 [node name="OrGate" type="StaticBody2D"]
 script = ExtResource("3_tg2dl")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ltj6j")
+hframes = 8
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ltj6j")
 

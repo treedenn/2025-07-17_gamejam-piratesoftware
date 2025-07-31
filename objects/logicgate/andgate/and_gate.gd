@@ -3,6 +3,9 @@ class_name AndGate extends LogicGate
 @onready var m_sprite: AnimatedSprite2D = $NormalState
 
 func _ready():
+	print("Gate: ", name)
+	print("Receiver1 ID: ", m_receiver1.get_instance_id())
+	print("Receiver2 ID: ", m_receiver2.get_instance_id())
 	_update_sprite()
 	
 	if reversed:

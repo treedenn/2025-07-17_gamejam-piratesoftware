@@ -3,14 +3,14 @@ class_name OrGate extends LogicGate
 @onready var m_sprite: AnimatedSprite2D = $NormalState
 
 func _ready():
-	_update_sprite()
+	_update_sprite()	
 	
 	if reversed:
 		m_sprite.visible = false
 		m_sprite = $NotState
 	else:
 		$NotState.visible = false
-		
+
 	super._ready()
 
 func _update_sprite():
@@ -27,5 +27,7 @@ func _update():
 	var new_output := m_receiver1.get_signal() | m_receiver2.get_signal()
 	if reversed:
 		new_output = ~(new_output) & 1
+	
+	print(new_output, " OR GATE OUTPUT")
 		
 	m_transmitter.send_signal(new_output)

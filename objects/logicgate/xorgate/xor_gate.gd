@@ -13,14 +13,18 @@ func _update_sprite():
 		m_sprite.frame = 4
 		if line_to_gate:
 			line_to_gate.modulate = Color.RED
-	if m_receiver1.get_signal() == 0 && m_receiver2.get_signal() == 1:
+	elif m_receiver1.get_signal() == 0 && m_receiver2.get_signal() == 1:
 		m_sprite.frame = 5
 		if line_to_gate:
 			line_to_gate.modulate = Color.RED
-	if m_receiver1.get_signal() == 1 && m_receiver2.get_signal() == 1:
+	elif m_receiver1.get_signal() == 1 && m_receiver2.get_signal() == 1:
 		if line_to_gate:
 			line_to_gate.modulate = Color.WHITE
 		m_sprite.frame = 6
+	else:
+		if line_to_gate:
+			line_to_gate.modulate = Color.WHITE
+		m_sprite.frame = 0
 
 func _update():
 	var new_output := m_receiver1.get_signal() ^ m_receiver2.get_signal()

@@ -27,12 +27,13 @@ func _ready() -> void:
 	m_diode.diode_activated.connect(_on_level_completed)
 	_wired()
 	
-	TilemapSaveManager.restore_level_tilemaps(0, tile_map_layer, tile_map_layer_2)
+	TilemapSaveManager.restore_level_tilemaps(1, tile_map_layer, tile_map_layer_2)
+	
 	
 func _exit_tree() -> void:
 	# Save tilemap data before leaving this level
 	if tile_map_layer and tile_map_layer_2:
-		TilemapSaveManager.save_level_tilemaps(0, tile_map_layer, tile_map_layer_2)
+		TilemapSaveManager.save_level_tilemaps(1, tile_map_layer, tile_map_layer_2)
 		
 func _wired():
 	#Switches inputs into XOrGate and XOrGate inputs into AndGate
@@ -49,6 +50,7 @@ func _wired():
 	
 	and_gate.m_transmitter.add_receiver(or_gate.m_receiver2)
 	not_gate.m_transmitter.add_receiver(or_gate.m_receiver1)
+	print(or_gate.m_receiver1.name, " OR GATE M RECEIVER 1 ")
 
 	xor_gate_2.m_transmitter.add_receiver(and_gate_2.m_receiver1)
 	or_gate.m_transmitter.add_receiver(and_gate_2.m_receiver2)

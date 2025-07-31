@@ -284,13 +284,13 @@ position = Vector2(88, 72)
 rotation = -1.5708
 line_to_gate = NodePath("../../Lines/Line2D5")
 
-[node name="OrGate" parent="Grp1" node_paths=PackedStringArray("line_to_gate") instance=ExtResource("6_05651")]
-position = Vector2(216, 72)
-line_to_gate = NodePath("../../Lines/Line2D9")
-
 [node name="NOTGate" parent="Grp1" node_paths=PackedStringArray("line_to_gate") instance=ExtResource("7_xxuo2")]
 position = Vector2(152, 104)
 line_to_gate = NodePath("../../Lines/Line2D4")
+
+[node name="OrGate" parent="Grp1" node_paths=PackedStringArray("line_to_gate") instance=ExtResource("6_05651")]
+position = Vector2(216, 72)
+line_to_gate = NodePath("../../Lines/Line2D9")
 
 [node name="Grp2" type="Node" parent="."]
 

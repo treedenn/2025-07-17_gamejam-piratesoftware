@@ -26,5 +26,7 @@ func _update():
 		new_output = 1
 	if m_receiver1.get_signal() == 1:
 		new_output = 0
-		
+	
 	m_transmitter.send_signal(new_output)
+	
+	print("NOT GATE OUTPUT ", new_output, " | M Transmitter Parent -> ", m_transmitter.m_receivers)
